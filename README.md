@@ -4,7 +4,7 @@ BoxBot4k
 Overview
 --------
 
-BoxBot4k (which is a clone of the famous Sokoban game) is an entry for the 2010 Java 4K Game Programming Contest. The goal of the contest is to develop the best game possible within four kilobytes (4096 bytes) of data.
+BoxBot4k (which is a clone of the famous Sokoban game) is an entry for the 2010 [Java 4K Game Programming Contest](http://www.java4k.com/). The goal of the contest is to develop the best game possible within four kilobytes (4096 bytes) of data.
 
 Rules
 -----
@@ -17,3 +17,14 @@ Game controls
 * Arrow keys: move the robot
 * Backspace: restart level
 * PgUp/PgDn: go to next/previous level
+
+How to compile
+--------------
+Use `mvn clean install` which -- in brief -- does the following:
+
+* compiles sources with `javac -target 1.5 B.java`
+* creates jar files:
+    * app: `jar cvfe boxbot4k-app.jar B *.class`
+    * applet: `jar cvf boxbot4k-applet.jar *.class`
+* optimizes/obfuscates classes with [ProGuard](http://proguard.sourceforge.net/)
+* repacks jar files with [kzip](http://advsys.net/ken/utils.htm)
