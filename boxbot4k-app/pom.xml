@@ -12,7 +12,7 @@
   </properties>
   <profiles>
     <profile>
-      <id>Optimize jar file to comply with 4k size limit. Only supported on Windows due to kzip executable.</id>
+      <id>Optimize jar file to comply with 4k size limit.</id>
       <activation>
         <os>
           <family>windows</family>
@@ -63,26 +63,20 @@
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.6</version>
             <executions>
               <execution>
-                <id>unpack</id>
-                <phase>process-resources</phase>
-                <goals>
-                  <goal>unpack</goal>
-                </goals>
+                <id>Unpack jar</id>
+                <phase>package</phase>
                 <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>${project.groupId}</groupId>
-                      <artifactId>${project.artifactId}</artifactId>
-                      <version>${project.version}</version>
-                      <type>${project.type}</type>
-                    </artifactItem>
-                  </artifactItems>
-                  <includes>*.class</includes>
-                  <outputDirectory>${project.build.directory}/${optimizedOutputDirectory}</outputDirectory>
+                  <tasks>
+                    <unzip src="${project.build.directory}/${project.build.finalName}.jar" dest="${project.build.directory}/${optimizedOutputDirectory}/" />
+                  </tasks>
                 </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
               </execution>
             </executions>
           </plugin>
@@ -127,6 +121,7 @@
                   <workingDirectory>${project.build.directory}/${optimizedOutputDirectory}</workingDirectory>
                   <arguments>
                     <argument>/r</argument>
+                    <argument>/q</argument>
                     <argument>/y</argument>
                     <argument>../${project.build.finalName}.jar</argument>
                     <argument>*.*</argument>
@@ -139,7 +134,7 @@
       </build>
     </profile>
     <profile>
-      <id>Profile for non Windows systems. Does not produce optimized output.</id>
+      <id>Profile for non-Windows systems. Does not produce optimized output.</id>
       <activation>
         <os>
           <family>!windows</family>

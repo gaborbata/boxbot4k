@@ -11,28 +11,29 @@
     <optimizedOutputDirectory>optimized</optimizedOutputDirectory>
   </properties>
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>*.html</exclude>
+        </excludes>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.6</version>
         <executions>
           <execution>
-            <id>copy-applet-html</id>
             <phase>package</phase>
             <goals>
-              <goal>copy-resources</goal>
+              <goal>run</goal>
             </goals>
             <configuration>
-              <outputDirectory>${project.build.directory}</outputDirectory>
-              <resources>
-                <resource>
-                  <directory>src/main/resources</directory>
-                  <filtering>true</filtering>
-                  <includes>
-                    <include>*.html</include>
-                  </includes>
-                </resource>
-              </resources>
+              <tasks>
+                <copy file="src/main/resources/boxbot-applet.html" tofile="${project.build.directory}/${project.build.finalName}.html"/>
+              </tasks>
             </configuration>
           </execution>
         </executions>
@@ -50,7 +51,7 @@
           </execution>
         </executions>
         <configuration>
-          <file>${project.build.directory}/boxbot-applet.html</file>
+          <file>${project.build.directory}/${project.build.finalName}.html</file>
           <replacements>
             <replacement>
               <token>boxbot4k-applet.jar</token>
@@ -63,7 +64,7 @@
   </build>
   <profiles>
     <profile>
-      <id>Optimize jar file to comply with 4k size limit. Only supported on Windows due to kzip executable.</id>
+      <id>Optimize jar file to comply with 4k size limit.</id>
       <activation>
         <os>
           <family>windows</family>
@@ -114,26 +115,20 @@
           </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.6</version>
             <executions>
               <execution>
-                <id>unpack</id>
-                <phase>process-resources</phase>
-                <goals>
-                  <goal>unpack</goal>
-                </goals>
+                <id>Unpack jar</id>
+                <phase>package</phase>
                 <configuration>
-                  <artifactItems>
-                    <artifactItem>
-                      <groupId>${project.groupId}</groupId>
-                      <artifactId>${project.artifactId}</artifactId>
-                      <version>${project.version}</version>
-                      <type>${project.type}</type>
-                    </artifactItem>
-                  </artifactItems>
-                  <includes>*.class</includes>
-                  <outputDirectory>${project.build.directory}/${optimizedOutputDirectory}</outputDirectory>
+                  <tasks>
+                    <unzip src="${project.build.directory}/${project.build.finalName}.jar" dest="${project.build.directory}/${optimizedOutputDirectory}/" />
+                  </tasks>
                 </configuration>
+                <goals>
+                  <goal>run</goal>
+                </goals>
               </execution>
             </executions>
           </plugin>
@@ -178,6 +173,7 @@
                   <workingDirectory>${project.build.directory}/${optimizedOutputDirectory}</workingDirectory>
                   <arguments>
                     <argument>/r</argument>
+                    <argument>/q</argument>
                     <argument>/y</argument>
                     <argument>../${project.build.finalName}.jar</argument>
                     <argument>*.*</argument>
@@ -190,7 +186,7 @@
       </build>
     </profile>
     <profile>
-      <id>Profile for non Windows systems. Does not produce optimized output.</id>
+      <id>Profile for non-Windows systems. Does not produce optimized output.</id>
       <activation>
         <os>
           <family>!windows</family>
@@ -206,6 +202,16 @@
               <source>1.5</source>
               <target>1.5</target>
               <encoding>UTF-8</encoding>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+              <archive>
+                <addMavenDescriptor>false</addMavenDescriptor>
+              </archive>
             </configuration>
           </plugin>
         </plugins>
