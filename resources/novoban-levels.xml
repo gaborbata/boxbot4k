@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sokobanlevels>
+  <title>Novoban</title>
+  <description>
+    This collection of 50 levels is intended for beginners. The difficulty
+    of the levels is increasing. The collection ends with some medium
+    levels. I submitted these problems to my 10 and 14 year old nephews
+    who completed all in one day (which is not bad at all for complete
+    beginners). However, if you are an expert, solving the whole
+    collection in less than 45 minutes is quite a challenge.
+  </description>
+  <email>sokoban@online.fr</email>
+  <url>http://sokoban.online.fr</url>
+  <levelcollection copyright="François Marques" maxwidth="11" maxheight="11">
+    <level id="be ban 10" width="6" height="6">
+      <l>####</l>
+      <l>#  ###</l>
+      <l>#  $@#</l>
+      <l># *. #</l>
+      <l>##   #</l>
+      <l> #####</l>
+    </level>
+    <level id="be ban 9" width="6" height="9">
+      <l>####</l>
+      <l>#  #</l>
+      <l>#  ###</l>
+      <l>#  $ #</l>
+      <l>##*#.#</l>
+      <l>#  @ #</l>
+      <l>#    #</l>
+      <l>#  ###</l>
+      <l>####</l>
+    </level>
+    <level id="be ban 7" width="6" height="7">
+      <l>####</l>
+      <l>#  #</l>
+      <l>#  #</l>
+      <l># @###</l>
+      <l># $$ #</l>
+      <l>#.  .#</l>
+      <l>######</l>
+    </level>
+    <level id="be ban 1" width="6" height="7">
+      <l>#####</l>
+      <l>#   #</l>
+      <l>#.#$##</l>
+      <l>#  @ #</l>
+      <l>#. $ #</l>
+      <l>###  #</l>
+      <l>  ####</l>
+    </level>
+    <level id="be ban 5" width="6" height="7">
+      <l>  ####</l>
+      <l>###  #</l>
+      <l>#.$$.#</l>
+      <l># #  #</l>
+      <l># @  #</l>
+      <l>###  #</l>
+      <l>  ####</l>
+    </level>
+    <level id="try ban 5" width="8" height="9">
+      <l>  ####</l>
+      <l>###  #</l>
+      <l>#    #</l>
+      <l>#   .###</l>
+      <l>### #@.#</l>
+      <l>  # $$ #</l>
+      <l>  #  $ #</l>
+      <l>  #. ###</l>
+      <l>  ####</l>
+    </level>
+    <level id="surrounded" width="7" height="7">
+      <l> #####</l>
+      <l>##...##</l>
+      <l># $$$.#</l>
+      <l># $+$ #</l>
+      <l>#.$$$ #</l>
+      <l>##..  #</l>
+      <l> ######</l>
+    </level>
+    <level id="be ban 3" width="8" height="8">
+      <l> ######</l>
+      <l>##    #</l>
+      <l># $## ##</l>
+      <l>#      #</l>
+      <l>##  .@.#</l>
+      <l> #$# ###</l>
+      <l> #   #</l>
+      <l> #####</l>
+    </level>
+    <level id="the gun" width="8" height="7">
+      <l> ####</l>
+      <l>##  ####</l>
+      <l>#      #</l>
+      <l># ..#$ #</l>
+      <l>###  $ #</l>
+      <l>  ###@ #</l>
+      <l>    ####</l>
+    </level>
+    <level id="be ban 2" width="10" height="9">
+      <l>    #####</l>
+      <l>    #   #</l>
+      <l>##### # ##</l>
+      <l>#  # $   #</l>
+      <l>#   $  # #</l>
+      <l># .. #   #</l>
+      <l>###@ #####</l>
+      <l>  #  #</l>
+      <l>  ####</l>
+    </level>
+    <level id="try ban 11" width="9" height="7">
+      <l>  #####</l>
+      <l>  #   ###</l>
+      <l>###@$.  #</l>
+      <l>#  *#   #</l>
+      <l>#   $. ##</l>
+      <l>#####  #</l>
+      <l>    ####</l>
+    </level>
+    <level id="be ban 14" width="7" height="8">
+      <l>####</l>
+      <l>#  ####</l>
+      <l># .   #</l>
+      <l># @$$ #</l>
+      <l>##  ###</l>
+      <l> #. #</l>
+      <l> #  #</l>
+      <l> ####</l>
+    </level>
+    <level id="be ban 04" width="7" height="8">
+      <l> #####</l>
+      <l>##  .#</l>
+      <l># $#.#</l>
+      <l>#    ##</l>
+      <l>## #  #</l>
+      <l> #$ @ #</l>
+      <l> #   ##</l>
+      <l> #####</l>
+    </level>
+    <level id="the dog" width="8" height="7">
+      <l>   #####</l>
+      <l>   #   #</l>
+      <l>####   #</l>
+      <l>#.*   ##</l>
+      <l># $#  #</l>
+      <l>#@ #  #</l>
+      <l>#######</l>
+    </level>
+    <level id="be ban 6" width="6" height="7">
+      <l>####</l>
+      <l>#.@#</l>
+      <l>#  ###</l>
+      <l># $  #</l>
+      <l># $. #</l>
+      <l>#  ###</l>
+      <l>####</l>
+    </level>
+    <level id="try ban 7" width="10" height="11">
+      <l>   ####</l>
+      <l>   #  #</l>
+      <l>   #  #</l>
+      <l>####  ####</l>
+      <l>#   # $@ #</l>
+      <l>#     $$.#</l>
+      <l>### ###  #</l>
+      <l> ## .#####</l>
+      <l> #   #</l>
+      <l> #.  #</l>
+      <l> #####</l>
+    </level>
+    <level id="the house" width="11" height="8">
+      <l>     #</l>
+      <l>    ###</l>
+      <l>  ## @ ##</l>
+      <l> # . * . #</l>
+      <l># $.$*$.$ #</l>
+      <l>#  ## ##  #</l>
+      <l>#         #</l>
+      <l>###########</l>
+    </level>
+    <level id="be ban 11" width="8" height="8">
+      <l> #######</l>
+      <l> #    .#</l>
+      <l> # ###.#</l>
+      <l>## #   #</l>
+      <l>#  # $ #</l>
+      <l>#  @ $##</l>
+      <l>#  #  #</l>
+      <l>#######</l>
+    </level>
+    <level id="try ban 6" width="9" height="7">
+      <l>  ####</l>
+      <l>###  ####</l>
+      <l>#    #@.#</l>
+      <l>#    $$.#</l>
+      <l>#  ## $.#</l>
+      <l>#####   #</l>
+      <l>    #####</l>
+    </level>
+    <level id="for ban 21" width="8" height="8">
+      <l> #####</l>
+      <l> # @ ###</l>
+      <l> # #   #</l>
+      <l>##$.*# #</l>
+      <l># $.*  #</l>
+      <l># #  ###</l>
+      <l>#    #</l>
+      <l>######</l>
+    </level>
+    <level id="the finger" width="9" height="9">
+      <l>  ##</l>
+      <l> #  #</l>
+      <l> #$@#</l>
+      <l> #.$##</l>
+      <l>##.$  ##</l>
+      <l># .#   ##</l>
+      <l>#       #</l>
+      <l>#####   #</l>
+      <l>    #####</l>
+    </level>
+    <level id="try ban 1" width="7" height="10">
+      <l>####</l>
+      <l>#  ###</l>
+      <l># @  #</l>
+      <l>#. #$##</l>
+      <l>##.$  #</l>
+      <l># $.# #</l>
+      <l># #   #</l>
+      <l>#    ##</l>
+      <l>###  #</l>
+      <l>  ####</l>
+    </level>
+    <level id="for ban 9" width="10" height="7">
+      <l> #######</l>
+      <l>##  #  ###</l>
+      <l># $ # $  #</l>
+      <l>#  .@.   #</l>
+      <l>##$ # $###</l>
+      <l> # . . #</l>
+      <l> #######</l>
+    </level>
+    <level id="try ban 17" width="8" height="6">
+      <l>####</l>
+      <l>#  #####</l>
+      <l>#  .*. #</l>
+      <l># $ $ @#</l>
+      <l>#   ####</l>
+      <l>#####</l>
+    </level>
+    <level id="try ban 19" width="7" height="7">
+      <l>#######</l>
+      <l>#. . .#</l>
+      <l>#   # #</l>
+      <l>##  $ #</l>
+      <l> # $$##</l>
+      <l> #  @#</l>
+      <l> #####</l>
+    </level>
+    <level id="be ban 8" width="7" height="7">
+      <l> ####</l>
+      <l> #  ##</l>
+      <l>##   ##</l>
+      <l># @$$ #</l>
+      <l># # # #</l>
+      <l>#..   #</l>
+      <l>#######</l>
+    </level>
+    <level id="try ban 20" width="7" height="8">
+      <l>  ####</l>
+      <l>  # .#</l>
+      <l>###  ##</l>
+      <l># $$  #</l>
+      <l>#     #</l>
+      <l>##$# ##</l>
+      <l> #.@.#</l>
+      <l> #####</l>
+    </level>
+    <level id="try ban 21" width="8" height="7">
+      <l>  #####</l>
+      <l>  #   #</l>
+      <l>###$# ##</l>
+      <l>#  $@$ #</l>
+      <l># #    #</l>
+      <l>#... ###</l>
+      <l>######</l>
+    </level>
+    <level id="for ban 4" width="10" height="7">
+      <l>######</l>
+      <l>#    #</l>
+      <l>#  .$#####</l>
+      <l>##*+$    #</l>
+      <l> # .$#   #</l>
+      <l> ##  #####</l>
+      <l>  ####</l>
+    </level>
+    <level id="try ban 22" width="8" height="6">
+      <l> #######</l>
+      <l>## .   #</l>
+      <l># $*$# #</l>
+      <l># #@   #</l>
+      <l>#  . ###</l>
+      <l>######</l>
+    </level>
+    <level id="for ban 8" width="9" height="6">
+      <l> #######</l>
+      <l>##....@##</l>
+      <l>#  $ #$ #</l>
+      <l>#  $  $ #</l>
+      <l>#  ##   #</l>
+      <l>#########</l>
+    </level>
+    <level id="try ban 10" width="7" height="6">
+      <l>   ####</l>
+      <l>#### @#</l>
+      <l>#  $$ #</l>
+      <l># . $ #</l>
+      <l>##.. ##</l>
+      <l> #####</l>
+    </level>
+    <level id="for ban 35" width="8" height="8">
+      <l>########</l>
+      <l># .@.  #</l>
+      <l># $ $  #</l>
+      <l>##*#*###</l>
+      <l>#     #</l>
+      <l>#     #</l>
+      <l>#  ####</l>
+      <l>####</l>
+    </level>
+    <level id="for ban 18" width="8" height="7">
+      <l>#######</l>
+      <l># .   #</l>
+      <l>#  $..#</l>
+      <l>###$*###</l>
+      <l># $@   #</l>
+      <l>#      #</l>
+      <l>########</l>
+    </level>
+    <level id="try ban 14" width="7" height="8">
+      <l>  ####</l>
+      <l>###  #</l>
+      <l>#    ##</l>
+      <l># # ..#</l>
+      <l># $$$@#</l>
+      <l>### # #</l>
+      <l>  #  .#</l>
+      <l>  #####</l>
+    </level>
+    <level id="try ban 16" width="7" height="6">
+      <l>  #####</l>
+      <l>###   #</l>
+      <l># $$$@#</l>
+      <l>#... ##</l>
+      <l>#    #</l>
+      <l>######</l>
+    </level>
+    <level id="try ban 18" width="7" height="8">
+      <l>  #####</l>
+      <l> ##   #</l>
+      <l> # @  #</l>
+      <l>## $ ##</l>
+      <l># $* #</l>
+      <l># #. #</l>
+      <l>#  .##</l>
+      <l>#####</l>
+    </level>
+    <level id="for ban 26" width="8" height="8">
+      <l>  ####</l>
+      <l>  #  #</l>
+      <l>###$ ##</l>
+      <l>#  $  #</l>
+      <l>#@#*. ##</l>
+      <l>#  *.  #</l>
+      <l>###    #</l>
+      <l>  ######</l>
+    </level>
+    <level id="try ban 8" width="9" height="9">
+      <l>    #####</l>
+      <l>  ###@  #</l>
+      <l>  #. $ .#</l>
+      <l>  #  $ ##</l>
+      <l> ### ###</l>
+      <l>## $  #</l>
+      <l>#     #</l>
+      <l>#.  ###</l>
+      <l>#####</l>
+    </level>
+    <level id="try ban 15" width="6" height="7">
+      <l>####</l>
+      <l>#  ##</l>
+      <l>#@. #</l>
+      <l>#..$##</l>
+      <l># $$ #</l>
+      <l>#    #</l>
+      <l>######</l>
+    </level>
+    <level id="try ban 23" width="8" height="7">
+      <l>  ####</l>
+      <l>  #  ###</l>
+      <l>### .  #</l>
+      <l>#@$$$  #</l>
+      <l>#   #. #</l>
+      <l>###.  ##</l>
+      <l>  #####</l>
+    </level>
+    <level id="try ban 28" width="8" height="8">
+      <l> ####</l>
+      <l> #  #</l>
+      <l> #  ####</l>
+      <l> # ..* #</l>
+      <l>## $$@ #</l>
+      <l>#   ####</l>
+      <l>#   #</l>
+      <l>#####</l>
+    </level>
+    <level id="for ban 10" width="9" height="8">
+      <l>#####</l>
+      <l>#   ###</l>
+      <l>#  .$ ###</l>
+      <l>## .# $ #</l>
+      <l> # .# $@#</l>
+      <l> ##.  $ #</l>
+      <l>  #  ####</l>
+      <l>  ####</l>
+    </level>
+    <level id="the plane" width="9" height="7">
+      <l>####</l>
+      <l>#  #####</l>
+      <l>#    @ ##</l>
+      <l># .*.$* #</l>
+      <l>##  #$  #</l>
+      <l> ##   ###</l>
+      <l>  #####</l>
+    </level>
+    <level id="for ban 6" width="9" height="7">
+      <l>    ####</l>
+      <l>#####  #</l>
+      <l>#   ..$##</l>
+      <l># $@# $ #</l>
+      <l>##$..   #</l>
+      <l> #  ##  #</l>
+      <l> ########</l>
+    </level>
+    <level id="for ban 17" width="7" height="8">
+      <l> #####</l>
+      <l> #   #</l>
+      <l> # #$##</l>
+      <l>##..@ #</l>
+      <l># *.$ #</l>
+      <l># # $##</l>
+      <l>#    #</l>
+      <l>######</l>
+    </level>
+    <level id="for ban 27" width="9" height="8">
+      <l>###</l>
+      <l>#.#####</l>
+      <l>#...  #</l>
+      <l># # # ###</l>
+      <l>#   $$ @#</l>
+      <l>###  $$ #</l>
+      <l>  ###   #</l>
+      <l>    #####</l>
+    </level>
+    <level id="try ban 4" width="9" height="7">
+      <l> ########</l>
+      <l> #  ## .#</l>
+      <l>##   $  #</l>
+      <l>#  $#$ .#</l>
+      <l>#   #@ ##</l>
+      <l>#. ##  #</l>
+      <l>########</l>
+    </level>
+    <level id="for ban 37" width="8" height="7">
+      <l> #####</l>
+      <l> #   #</l>
+      <l>##   ###</l>
+      <l># $$$$ #</l>
+      <l># .... #</l>
+      <l>## @ ###</l>
+      <l> #####</l>
+    </level>
+    <level id="for ban 5" width="9" height="8">
+      <l>########</l>
+      <l>#.. @..#</l>
+      <l>#  $$$ #</l>
+      <l>#### ####</l>
+      <l>#       #</l>
+      <l>#     $ #</l>
+      <l>#  ######</l>
+      <l>####</l>
+    </level>
+  </levelcollection>
+</sokobanlevels>
