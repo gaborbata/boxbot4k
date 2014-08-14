@@ -11,6 +11,8 @@ The goal of the game to push boxes around a maze and try to put them in designat
 
 The game contains 50 levels which are based on François Marques' Novoban levelset with some modifications.
 
+![BoxBot4k](https://raw.githubusercontent.com/gaborbata/boxbot4k/master/resources/boxbot4k-screenshot.png)
+
 Game controls
 -------------
 * Arrow keys: move the robot
