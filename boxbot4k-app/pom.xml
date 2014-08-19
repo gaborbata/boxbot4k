@@ -117,7 +117,7 @@
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <executable>${basedir}/build/kzip.exe</executable>
+                  <executable>${basedir}/tools/kzip.exe</executable>
                   <workingDirectory>${project.build.directory}/${optimizedOutputDirectory}</workingDirectory>
                   <arguments>
                     <argument>/r</argument>

@@ -105,7 +105,7 @@
             <configuration>
               <proguardVersion>4.10</proguardVersion>
               <options>
-                <option>-keep public class B{public static void main(java.lang.String[]);}</option>
+                <option>-keep public class B</option>
               </options>
               <libs>
                 <lib>${java.home}/lib/rt.jar</lib>
@@ -169,7 +169,7 @@
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <executable>${basedir}/build/kzip.exe</executable>
+                  <executable>${basedir}/tools/kzip.exe</executable>
                   <workingDirectory>${project.build.directory}/${optimizedOutputDirectory}</workingDirectory>
                   <arguments>
                     <argument>/r</argument>
