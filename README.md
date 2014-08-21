@@ -21,14 +21,14 @@ Game controls
 
 How to compile
 --------------
-Use `mvn clean install` which does the following:
+Use `mvn clean install` or `gradle clean build` which do the following:
 
-* compiles sources with `javac -target 1.5 B.java`
-* creates jar files:
+* compile sources with `javac -target 1.5 B.java`
+* create jar files:
     * app: `jar cvfe boxbot4k-app.jar B *.class`
     * applet: `jar cvf boxbot4k-applet.jar *.class`
-* optimizes/obfuscates classes with [ProGuard](http://proguard.sourceforge.net/)
-* repacks jar files with [kzip](http://advsys.net/ken/utils.htm)
+* optimize/obfuscate classes with [ProGuard](http://proguard.sourceforge.net/)
+* repack jar files with [kzip](http://advsys.net/ken/utils.htm)
 
 Currently, the build configuration of the project does not support producing optimized output (i.e. jars with 4k size limit) for non-Windows environments which is due to the Windows version of kzip executable.
 kzip is available on Linux and MacOSX as well but I haven't got chance to try them and create separate build profiles for those operating systems.

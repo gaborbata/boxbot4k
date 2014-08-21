@@ -1,0 +1,68 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "http://repo.spring.io/libs-release" }
+    }
+    ext {
+        appName = "boxbot4k-applet"
+        appVersion = "1.0.0"
+        finalName = "${appName}-${appVersion}"
+        proguardBase = "${appName}-proguard-base"
+        isWindows = org.gradle.internal.os.OperatingSystem.current().windows
+    }
+    dependencies {
+        classpath "net.sf.proguard:proguard-gradle:4.10"
+    }
+}
+
+jar {
+    baseName = isWindows ? proguardBase : finalName
+    exclude("boxbot-applet.html", "META-INF/MANIFEST.MF")
+}
+
+task proguard(type: proguard.gradle.ProGuardTask) {
+    description 'Generate optimized/obfuscated jar'
+    injars "${buildDir}/libs/${proguardBase}.jar"
+    outjars "${buildDir}/libs/${finalName}.jar"
+    libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
+    keep 'public class B'
+    enabled = isWindows
+}
+
+task deleteProguardBase(type: Delete, dependsOn: proguard) {
+    description 'Delete ProGuard base jar'
+    delete "${buildDir}/libs/${proguardBase}.jar"
+    enabled = isWindows
+}
+
+task unzip(type: Copy, dependsOn: proguard) {
+    description 'Unpack generated jar file'
+    from zipTree(file("${buildDir}/libs/${finalName}.jar"))
+    into file("${buildDir}/unpacked")
+    enabled = isWindows
+}
+
+task kzip(type:Exec, dependsOn: unzip) {
+    description 'Pack jar with kzip'
+    workingDir "${buildDir}/unpacked"
+    commandLine "${projectDir}/tools/kzip.exe", "/r", "/q", "/y", "${buildDir}/libs/${finalName}.jar", "*.*"
+    enabled = isWindows
+}
+
+task copyAppletHtml(type: Copy) {
+    description 'Copy applet template for generated jar'
+    from "src/main/resources"
+    into "${buildDir}/libs"
+    exclude '**/*.MF'
+    rename 'boxbot-applet.html', "${finalName}.html"
+    filter { line -> line.contains('boxbot4k-applet.jar') ? line.replaceAll('boxbot4k-applet.jar', "${finalName}.jar") : line }
+    includeEmptyDirs = false
+}
+
+build.dependsOn proguard, deleteProguardBase, unzip, kzip, copyAppletHtml
