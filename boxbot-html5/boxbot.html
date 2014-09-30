@@ -744,7 +744,7 @@
       var moves;
       var pushes;
       var levelSolved;
-      var level = 0;
+      var level;
       var playerPos;
       var gameStarted;
       var keyPress;
@@ -851,7 +851,6 @@
               context.fillText(GAME_CONTROL_LEVEL, CENTER, LETTER_SPACING * 6 + shift);
               context.fillText(GAME_CONTROL_START, CENTER, LETTER_SPACING * 8 + shift);
               context.fillText(GAME_COPYRIGHT, CENTER, TABLE_HEIGHT * BLOCK_SIZE - BLOCK_SIZE / 4);
-
           } else {
               if (levelSolved) {
                   context.fillText(COMPLETED_TEXT, CENTER, LETTER_SPACING);
