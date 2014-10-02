@@ -710,16 +710,16 @@
           [ 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.3)', 1 ]
       ];
 
-      var STATUS_TEXT = "LEVEL: %s     MOVES: %s     PUSHES: %s";
-      var COMPLETED_TEXT = "LEVEL COMPLETED! PRESS ENTER TO CONTINUE.";
+      var STATUS_TEXT = 'LEVEL: %s     MOVES: %s     PUSHES: %s';
+      var COMPLETED_TEXT = 'LEVEL COMPLETED! PRESS ENTER TO CONTINUE.';
 
-      var GAME_TITLE = "BOXBOT";
-      var GAME_CONTROLS = "GAME CONTROLS:";
-      var GAME_CONTROL_ARROWS = "ARROW KEYS - MOVE";
-      var GAME_CONTROL_RESTART = "BACKSPACE - RESTART LEVEL";
-      var GAME_CONTROL_LEVEL = "PGUP/PGDN - NEXT/PREVIOUS LEVEL";
-      var GAME_CONTROL_START = "PRESS ANY KEY TO START.";
-      var GAME_COPYRIGHT = "(C) 2014 GABOR BATA";
+      var GAME_TITLE = 'BOXBOT';
+      var GAME_CONTROLS = 'GAME CONTROLS:';
+      var GAME_CONTROL_ARROWS = 'ARROW KEYS - MOVE';
+      var GAME_CONTROL_RESTART = 'BACKSPACE - RESTART LEVEL';
+      var GAME_CONTROL_LEVEL = 'PGUP/PGDN - NEXT/PREVIOUS LEVEL';
+      var GAME_CONTROL_START = 'PRESS ANY KEY TO START.';
+      var GAME_COPYRIGHT = '(C) 2014 GABOR BATA';
 
       var LEVEL_NUM = LEVEL_DATA.length / (TABLE_WIDTH * TABLE_HEIGHT); // 50
 
@@ -750,7 +750,7 @@
       var keyPress;
 
       function sprintf(format) {
-          for(var i = 1; i < arguments.length; i++) {
+          for (var i = 1; i < arguments.length; i++) {
               format = format.replace(/%s/, arguments[i]);
           }
           return format;
@@ -872,7 +872,7 @@
           event.preventDefault();
           if (!keyPress) {
               keyPress = true;
-              var command = "";
+              var command = '';
               switch (event.keyCode) {
                 case 38: // up
                     command = COMMAND_UP;
@@ -899,7 +899,7 @@
                     command = COMMAND_CONTINUE;
                     break;
               }
-              if (command != "" || !gameStarted) {
+              if (command != '' || !gameStarted) {
                   handleCommand(command);
               }
           }
@@ -973,7 +973,7 @@
           window.addEventListener('keyup', handleKeyReleased, false);
           var buttons = document.getElementsByTagName('button');
           for (var i = 0; i < buttons.length; i++) {
-              buttons[i].addEventListener("click", handleButtonClick, false);
+              buttons[i].addEventListener('click', handleButtonClick, false);
           }
       }
 
@@ -990,6 +990,8 @@
               loadLevel();
               paint();
               addEventListeners();
+          } else {
+              document.body.appendChild(document.createTextNode('Could not initialize game.'));
           }
       }
     </script>
@@ -1002,6 +1004,7 @@
 
       body {
         background-color: black;
+        color: white;
         margin: 0;
       }
 
@@ -1011,9 +1014,7 @@
       }
 
       .grid {
-        width: 100%;
-        max-width: 458px;
-        min-width: 458px;
+        width: 458px;
         margin: 0 auto;
         overflow: hidden;
       }
@@ -1065,7 +1066,6 @@
 
       #boxbot-container canvas {
         height: 384px;
-        margin: 0 auto;
         width: 448px;
       }
 
