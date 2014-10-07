@@ -213,7 +213,7 @@ public final class B extends JApplet implements KeyListener, MouseListener, Runn
             for(int x = 0; x < BLOCK_SIZE / 2; x++) {
                 for(int y = 0; y < BLOCK_SIZE / 2; y++) {
                     g.setBackground(new Color(BLOCK_GFX_CONFIG[i][imageData[BLOCK_SIZE / 2 * y + x]], true));
-                    g.clearRect(x * 2, y * 2, x * 2  + 2, y * 2 + 2);
+                    g.clearRect(x * 2, y * 2, 2, 2);
                 }
             }
             BLOCK_GFX[i] = image;
@@ -271,14 +271,14 @@ public final class B extends JApplet implements KeyListener, MouseListener, Runn
                         buffer.drawImage(BLOCK_GFX[OUTER_FLOOR], x * BLOCK_SIZE, y * BLOCK_SIZE, null);
                     } else if (i == 0 && table[TABLE_WIDTH * y + x] <= 2) { // draw floor
                         buffer.drawImage(BLOCK_GFX[table[TABLE_WIDTH * y + x]], x * BLOCK_SIZE, y * BLOCK_SIZE, null);
-                    } else if (i == 1 && table[TABLE_WIDTH * y + x] > 2) { //draw shadow
+                    } else if (i == 1 && table[TABLE_WIDTH * y + x] > 2) { // draw shadow
                         buffer.drawImage(BLOCK_GFX[SHADOW], x * BLOCK_SIZE + SHADOW_SHIFT, y * BLOCK_SIZE + SHADOW_SHIFT, null);
-                    } else if (i == 2 && table[TABLE_WIDTH * y + x] > 2) { //draw other
+                    } else if (i == 2 && table[TABLE_WIDTH * y + x] > 2) { // draw other
                         buffer.drawImage(BLOCK_GFX[table[TABLE_WIDTH * y + x]], x * BLOCK_SIZE, y * BLOCK_SIZE, null);
                     }
                 }
             }
-            if (i == 1 && gameStarted) { //draw player shadow
+            if (i == 1 && gameStarted) { // draw player shadow
                 buffer.drawImage(BLOCK_GFX[PLAYER_SHADOW], playerX * BLOCK_SIZE + SHADOW_SHIFT, playerY * BLOCK_SIZE + SHADOW_SHIFT, null);
             } else if (i == 2 && gameStarted) { // draw player
                 buffer.drawImage(BLOCK_GFX[PLAYER], playerX * BLOCK_SIZE, playerY * BLOCK_SIZE, null);
