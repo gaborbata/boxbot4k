@@ -37,12 +37,12 @@ Usage
 -----
 Java 5 or later is recommended to run the game.
 
-* Application: Most platforms have a mechanism to execute `.jar` files (e.g. double click the `boxbot4k-app-1.0.0.jar`).
+* Application: Most platforms have a mechanism to execute `.jar` files (e.g. double click the `boxbot4k-app-1.0.1.jar`).
   You can also run the game from the command line by typing:
 
-        java -jar boxbot4k-app-1.0.0.jar
+        java -jar boxbot4k-app-1.0.1.jar
 
-* Applet: Open `boxbot4k-applet-1.0.0.html` in a web browser which supports Java applets.
+* Applet: Open `boxbot4k-applet-1.0.1.html` in a web browser which supports Java applets.
 
 HTML5 port
 ----------
