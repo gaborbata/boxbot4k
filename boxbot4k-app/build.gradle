@@ -11,7 +11,7 @@ buildscript {
     }
     ext {
         appName = "boxbot4k-app"
-        appVersion = "1.0.0"
+        appVersion = "1.0.1"
         finalName = "${appName}-${appVersion}"
         proguardBase = "${appName}-proguard-base"
         isWindows = org.gradle.internal.os.OperatingSystem.current().windows
