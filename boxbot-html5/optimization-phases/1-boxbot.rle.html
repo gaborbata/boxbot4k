@@ -155,9 +155,9 @@
 
       // input: string (0x20-0x26: data, >= 0x27: repetition marker)
       function getData(input, index, output) {
-          var r = 1, d = 0, s = 0, a = input.split(''), c;
-          for (var j = 0; j < a.length; j++) {
-              c = a[j].charCodeAt(0);
+          var r = 1, d = 0, s = 0, c;
+          for (var j = 0; j < input.length; j++) {
+              c = input.charCodeAt(j);
               if (c >= 0x27) {
                   r = c - 0x25;
               } else {
