@@ -666,13 +666,14 @@ IMAGE_DATA =
   '! """!       """' +
   ' """  """"""""" '
 
+# input: ascii string (0x20-0x26: data, >= 0x27: repetition marker)
 def rle_compress(input)
   shift = 0x20
   compressed = ''
-  u = input + "/"
-  init = u.split('')[0]
+  char_array = (input + '/').split('')
+  init = char_array[0]
   chars = []
-  u.split('').each do |c|
+  char_array.each do |c|
     if (c == init && chars.size() <= 88)
       chars.push(c)
     else
@@ -692,86 +693,88 @@ def rle_compress(input)
 end
 
 def rle_decompress(input)
-  res = ''
+  decompressed = ''
   repeat = 1
-  index = 0
   input.split('').each do |c|
     if (c.ord >= 0x27)
       repeat = c.ord - 0x25
     else
       (0 ... repeat).to_a.each do |i|
-        res << c
+        decompressed << c
       end
       repeat = 1
     end
   end
-  return res
+  return decompressed
 end
 
-def decompress(data, rle = true)
-  input = data
+def decompress(input, rle = true)
   entries = input.split('|')
-  uncompressed = entries.shift
-  (0 .. entries.size - 1).step(2).to_a.each do |i|
-    uncompressed = uncompressed.gsub(entries[i], entries[i+1])
+  decompressed = entries.shift
+  (0 ... entries.size).step(2).to_a.each do |i|
+    decompressed.gsub!(entries[i], entries[i + 1])
   end
-  return rle ? rle_decompress(uncompressed) : uncompressed
+  return rle ? rle_decompress(decompressed) : decompressed
 end
 
+# replace the most frequent words with substitution characters
 def greedy_compress(input, rle = true)
   data = rle ? rle_compress(input) : input
   unused_chars = []
-  characters = []
-  characters.concat(('0' .. '9').to_a)
-  characters.concat(('a' .. 'z').to_a)
-  characters.concat(('A' .. 'Z').to_a)
-  characters.concat(['_', ',', '='])
-    characters.each do |char|
-    next if char == '|'
+  # these must be safe for RegExp point of view
+  subst_characters = ['_', ',', '=', '@'].
+    concat(('0' .. '9').to_a).
+    concat(('a' .. 'z').to_a).
+    concat(('A' .. 'Z').to_a)
+  subst_characters.each do |char|
     unused_chars.push(char) if !data.include?(char)
   end
-
-  dic = {}
-  map = {}
-  (3 .. 100).to_a.reverse.each do |word_length|
+  dictionary = {}
+  subst_map = {}
+  (3 .. 10).to_a.reverse.each do |word_length|
     word_count = {}
     data.scan(Regexp.new(".{#{word_length}}")).each do |word|
       word_count[word] = 0 if word_count[word].nil?
-      word_count[word] = word_count[word] + 1
+      word_count[word] += 1
     end
     word_count.each do |word, count|
-      if count > 1
+      if count > 2
         length = word.size * count
-        dic[length] = [] if dic[length].nil?
-        dic[length].push(word)
+        dictionary[length] = [] if dictionary[length].nil?
+        dictionary[length].push(word)
       end
     end
   end
-  compressed = data
-  dic.sort.reverse.each do |length, words|
+  compressed = data.clone
+  dictionary.sort.reverse.each do |length, words|
     words.each do |word|
       next if !compressed.include?(word) || unused_chars.empty?
       subst = unused_chars.shift
-      compressed = compressed.gsub(word, subst)
-      map[subst] = word
+      compressed.gsub!(word, subst)
+      subst_map[subst] = word
     end
   end
-  map.each do |char, word|
-    compressed = compressed + "|#{char}|#{word}"
+  subst_map.each do |char, word|
+    compressed << "|#{char}|#{word}"
   end
   return compressed
 end
 
-def test(data, rle = true)
+def test(name, data, rle = true)
   compressed = greedy_compress(data, rle)
   decompressed = decompress(compressed, rle)
-  p "data      : " + (data.size).to_s
-  p "compressed: " + (compressed.size).to_s
-  p "validation: " + (data == decompressed).to_s
-  p "---------------------"
-  p compressed
-  p "---------------------"
+  puts "================================================="
+  puts name
+  puts "-------------------------------------------------"
+  puts "input data size .... [#{data.size}]"
+  puts "compressed size .... [#{compressed.size}]"
+  puts "compression ratio .. [#{sprintf('%.2f%', compressed.size.to_f / data.size.to_f)}]"
+  puts "decomp. valid ...... [#{data == decompressed}]"
+  puts "-------------------------------------------------"
+  puts "compressed = '#{compressed}';"
+  puts "================================================="
+  puts
 end
 
-test(LEVEL_DATA)
-test(IMAGE_DATA)
+test("levels", LEVEL_DATA)
+test("images", IMAGE_DATA)
