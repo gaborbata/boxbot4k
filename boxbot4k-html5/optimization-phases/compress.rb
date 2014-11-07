@@ -1,4 +1,4 @@
-# Experimaental compression methods for BoxBot4k game data
+# Experimental compression methods for BoxBot4k game data
 
 LEVEL_DATA =
   '              ' +
