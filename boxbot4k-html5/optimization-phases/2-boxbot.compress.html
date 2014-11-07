@@ -45,28 +45,21 @@
       var BLOCK_SIZE = IMAGE_SIZE * IMAGE_SCALE;
 
       var LEVEL_DATA = decompress(
-        "RlpDk*3%!N!3!$(7+ -#~  lk(1!!%$1!&\"!16.bel/4k(1!N1#&#\"1!!$!1)!1!!(2)#gl/4/4p!$(1w!1\"!!\"2+#sb. 6. #\"#%#1!!$!1"+
-        "\"N2(#m/l~   -3+!3!\"&&%$3+abm/lt )2(O1\"%%\"1!O1!$!!2(#m/lf )2(O1)!1(!\"(#+o!#$\"1w!1!N1\"!(2)#f +#9E#5%J#3+!3O\""+
-        "$\"#9%#i, 6.bfl.n!!)3+!3!\"\"#8+o!N2(#A/lfb. 6*b!#K)4!%j) z%m!#)y\"\"!6)o$!*3m/lgb.Bi*o$%\"m*y!&6* z%D#*bm/lrlk)#5"+
-        "\"j5$%89M1D/4/lg *1O\"1!%#\"1)K9#!O1%!$!1j2*#hb. 6+l(!3\"&j3!%#m9Am, ,#slp\"$#k(1N!1!%\"!1!!(2)#vb, (658!#3!O\"!3!"+
-        "\"m!3#%#\"89$!i,bf ,#9)75(#\"3#!z3mN3!!$!%#3mm, ,#e )2(O)#*C!#$\"#*Cw\"#*4H\"L*6.brb.y$i5z3#%\"&#!3!%\"&!!3!M3)!2+"+
-        "#Wl/4p%$#p\"%(#9#\"%m3!\"6L#,!L*6.bUlk(1!$!!1D%##9#\"%m5%\"P569)K,om/lW ,3#m!i)y8!%m)y!\"$\"j)n8!%(#*y\"!\"!q,#~  "+
-        "lk*3!!\"&\"!3N%!$3(!)#+bt ,#9\"!\"7, 6!#9#!N1w#1!!$#.btl/416#5$%85P!#9\"\"j, ,#tlp!\"2(#m#5%%m9*!#9#%P1\"$\"#.bgb."+
-        " 6,o%P3!!%$%!3!E3(\"i+ +#r +1)!1!!\"%*#)n&\"%)!L#$\"%6*n!!*#+l~ * ,3F(!3!%&%#!3!#$(!3!!\"i+ +#~ ( ,3#)\"$##*y!88*y"+
-        "N!8*46* .#~ )l,l!$#5!%85\"!89#\"D2*#s -3!\"$\"!!3N%!!3#&#&(3*!#9*!#5!)#,lg ,#5\"j5!%\"\"#,o%&(3!%$(!3+a -#s )2(O1)"+
-        "K5F\"#5(%$#,o!#!x#!7.btb, (65(%$#9(D#9)!2+#u *1z1!$m9#!8#5%&!1!G1!72*#hlk2(#8#5!%m9$#&D3!!&\"!ao)!2+#Xb,o$m9\"!%75"+
-        "!8#+o!(3Hm9*!#9\"!i,bhl/4x#$\"!x#\"\"%#1w!1)!2+#tlp!i+o!\"!!3$(%!!3j\"ao\"m2*#sl/4k)#5\"\"&!3#w$!3(!)3j.beb.Bi5!\""+
-        "%i*n7N37!%$3G!85!)#,lelk*3)!A#*y\"&\"%&!#*nm%!!3#(i,bvl+b!!3(!\"\"%##*y%$#!8*n%\"\"(!3m#!a -#rb. 6.y#%##9#\"\"A5&"+
-        "\"85H##9)!2+#do0 #\"*#9(\"m5Pi*Bw!$#*o!!%8, (6.bc -3m#7*n(!%m*y!%#%7* 6AL#D#!a -#sb. z1z(3!)%!3!)\"!3#!$i,br -3"+
-        "\"\"!$\"\"3!!(8+l!)L#,!L#*!8*y!+#*lI |1|#- #|2|#- |3|#+ #|4| #!!#|5|, #!|6|#(!#|7|!\"#|8|%!#|9|, #|a|!#+|b| *#|i|!"+
-        "(#|j|(!#|k|/ #!!|l| )#|m|!!#|n| ##|o| (#|p|/ #|q|#, |w|!%%|x|#. |y| #!|z|#(!|A|$!#|B| #(|C| #)|D|\"!#|E|#)!|F|#!\""+
-        "|G|#\"!|H|#!%|J|##!|K|!##|L|#* |M|#!!(|N|!%!|O|#!!|P|#!#");
+          's,FjK~q-#ccH$Z":Yw`D9q%$po&TpxZQFU9qGx&jpq$Kgp9Y~FUU;x4Gjv"pWmV>0j/Cq$KBGx2w`iOgvH6&%$rgv:2Viyxaj@"poa;vpx2iyxagph"xSoP"4GqGBxpYi3vvnbx' +
+          '!dgvSv"$"n/o=hQiy xvOgvHf#kSqGxPK~Yi0hetooxzqoc!1hco1of!h1xP!-2~>xAP%8eq&heh%Txlt2,FqO o"ZM$%kRvxpjK~2~Nxv"4jpg3!a#k$KhCJ~i0h:Zrj&Zdbqn' +
+          'P!q7VFj$p~9oc4Tp9YwiRhMkodoqTH8oS%jknPv=Ji=g"MxjS!hrqokrq$!%dqq7tyxqtlgP"eg@"eX!%"ethQ,I;!xMhS%6orb6vHXrE<~FU/$p~j%xR"cdo"hxlgZethpi#<F' +
+          '9;vpB/3"cnb"oMhng3Ut<~WSvX1okoc1q"$"Z1xkbxeoTT7w`Dq-q6THkk$rhOJVi=BT"nhoRvGb%Cq$QVDXyxZL;%kMoonj"Z7VDo"pxqLbcng!R%oCj$"Q~>R/odq%$kHgrjf' +
+          '!xrWm,Wygpq"%t1x&"cveP"%hAv-YwVWS!"Zrb&%oHPZrqTxrWmwyzWSff$xlqk#keqckeXZetJw,Oi!$nq%kMTkRf!CJVtOo"$8HkcS&#&xr55qOim~WM"Znq%fR/&xrb$Zrgv' +
+          ':YVtyxagLoofnb@$Roo0q"QViRhnb@$njf!LEmwNxZp;vR!kLb&KojKq"CJ~Dax#kLqcnP#&Tdq&8SE<~iRPvnBk"nqkdxoxS!cn5jv=J~DXy PT0j"%CbGEmVDXSo8rP@crhBS' +
+          'jvCJVFUqO of&!S!@$!rhOhQ>=q"kxA!"okH"b$S8knqOimFq-g$!xlo6"%&!Av#cSZ=Jwiutqrhf%xlb$okA%fZrXv:Y,>0o/3f$!M&"kMbLE<V xp~ jtnjfvMooxeh%k$Aq%' +
+          'kRhpi#<VtOX!"AZceq%#k"ehP!xlBxv:YV>pxZxrb@kHff!S!$!=J,tOjT$frq@k:!tlgZeg!keqWltsz|,yl|-tr|/#%|0p |1#z|2UY|3Lx|4pb|5g!n|6"&|7nW_|8"v|9Xp' +
+          '|:rt|;o$|<sw|=xn|>Ih|@%%|Aex|Bj!|Cxy|Di`|EgpW|Ft`|Gkp|Hro|IN |Jt_|K!p|Ld |Mno|Ntp|Otu|P#$|Qpi_|Rnx|Srx|T"!|Ua~|Vyu|Wtx|Xqx|Ytm|Zv!|_#m|' +
+          '`y~|aqp|bo%|c%v|dxu|e#l|f""|gqv|hq!|i t|j#"|k%!|lz |mss|nr |o#!|p#y|q#v|r#u|sww|txx|uz~|v!!|wyy|x##|yzz|z~~|~  ');
+
       var IMAGE_DATA = decompress(
-        "* *!\"/aic*!c!(\"!c*!c+\",a,i\")a,i\")a!*\"i\")a!*\"i\")b,!(\"+ -\".a a/a a- (g (!\"+ "+
-        ")\"  )\"7j9\"+!\"\"08+8!!6hhhh\" 0g0g0g0g0g0g0g0g0g0g0g0!6\"4j9\"+!\"\"08+8!!6\"- -121212121212!- 5!-212121212121 "+
-        "-!. .8(! (!, \"(!e!,b!8\"!,d3\" .\" 3\" (8)! 3\"(! \"(8\"3\"!8\"!3\"3\"3\"3\"\"8\"\"3\"8(\"!d3\" )\" d 3\" .! 3\"("+
-        "!, \"8f!,b!d!,dd  .\" |0|!!\" !|1|! +\"|2| !+ |3|!( |8|!  |9|!!\"|a| !\"|b| \"\"|c|\"/ |d| (\"|e| \"!|f|\"\"!|g|!"+
-        "\" |h|\"( |i|!\"!|j| \" " );
+          'x tnssntn!mntnvzbsaisais!jis!jizthmevvq s~ns~sqys~ysev~vqqZlzaY"l~a~ydppppfffffowldqxplzaY"l~a~ydqk vccuz !e!qkkq!e! vccuz kq k`hl!xph ' +
+          '"ybYZ!bm_vj gl`t gh "hZgyZypgg!rz`zg`m! m_v~m _k! ghxp`Ybz! m!bm m~vj |Yzy|Z~"|_g |`!~|aty|bxr|cuu|dvvvj|ex~|foo|g!p|hy!|issx|jv"|ktt|l' +
+          ' y|mz"|nsq~|oww|pr"|qxx|r~ |s!"|tyy|uz !x~! v|vzz|w y"|x~~|y!!|z""|~  ');
 
       var IMAGE_INDEX = 3;
       var IMAGE_PALETTE = [
@@ -137,22 +130,11 @@
       }
 
       function decompress(k) {
-          var i, r = 1, c, d = '', x = k.split("|"), y = x.shift();
-          for (i = 0; i < x.length; i += 2) {
-              y = y.replace(new RegExp(x[i],'g'), x[i + 1]);
+          var i, x = k.split("|"), y = x.shift();
+          for (i = 0; i < x.length; i++) {
+              y = y.replace(new RegExp(x[i].charAt(0),'g'), x[i].substring(1));
           }
-          for (var j = 0; j < y.length; j++) {
-              c = y.charCodeAt(j);
-              if (c >= 0x27) {
-                  r = c - 0x25;
-              } else {
-                  for (i = 0; i < r; i++) {
-                      d += y.charAt(j);
-                  }
-                  r = 1;
-              }
-          }
-          return d;
+          return y;
       }
 
       function getData(input, index, output) {

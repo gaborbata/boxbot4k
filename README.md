@@ -48,7 +48,7 @@ HTML5 port
 ----------
 An experimental HTML5/JavaScript port has also been created of the game (using the the `canvas` element).
 
-It can be found in the `boxbot-html5` folder.
+It can be found in the `boxbot4k-html5` folder.
 
 License
 -------
