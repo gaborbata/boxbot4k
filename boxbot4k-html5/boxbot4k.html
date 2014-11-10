@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Sokoban game in 4k">
+    <meta name="copyright" content="Copyright (c) 2014 Gabor Bata">
     <title>BoxBot4k</title>
     <style type="text/css">
       body {
@@ -8,19 +11,19 @@
         margin: 0;
       }
 
-      #w {
+      #wrapper {
         display: table;
         position: absolute;
         height: 100%;
         width: 100%;
       }
 
-      #c {
+      #container {
         display: table-cell;
         vertical-align: middle;
       }
 
-      #b {
+      #boxbot4k {
         display: block;
         height: 384px;
         margin: 0 auto;
@@ -29,9 +32,9 @@
     </style>
   </head>
   <body>
-    <div id="w">
-      <div id="c">
-        <canvas id="b" width="448" height="384"></canvas>
+    <div id="wrapper">
+      <div id="container">
+        <canvas id="boxbot4k" width="448" height="384"></canvas>
       </div>
     </div>
     <script src="boxbot4k.js"></script>

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BoxBot</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Sokoban game in 4k">
+    <meta name="copyright" content="Copyright (c) 2014 Gabor Bata">
+    <title>BoxBot4k</title>
     <script type="text/javascript">
       var W = 14,
           H = 12,
@@ -23,8 +26,8 @@
             ['#c47865','#a85449','#6f2c2b',1],[R,Q,Q,0],
             [Q,Q,Q,1]
           ],
-          E = D('y COMPLETED! PRzS ENTER TO CONTINUE.,BOXBOT,,GAME CONTROLS:,ARROW KEYS - MOVE,BACKSPACE - RzTART y,PGUP/PGDN - NEXT/PREVIOUS y,' +
-                ',PRzS ANY KEY TO START.,(C) 2014 GABOR BATA,     ,y: ,MOVz: ,PUSHz: |~LEV|zES|y~EL').split(','),
+          E = D('~ COMPLETED! PRzS ENTER TO CONTINUE.,BOXBOT4K,,GAME CONTROLS:,ARROW KEYS - MOVE,BACKSPACE - RzTART ~,PGUP/PGDN - NEXT/PREVIOUS ~,' +
+                ',PRzS ANY KEY TO START.,(C) 2014 GABOR BATA,     ,~: ,MOVz: ,PUSHz: |~LEVEL|zES').split(','),
           L = D('s,FjK~q-#ccH$Z":Yw`D9q%$po&TpxZQFU9qGx&jpq$Kgp9Y~FUU;x4Gjv"pWmV>0j/Cq$KBGx2w`iOgvH6&%$rgv:2Viyxaj@"poa;vpx2iyxagph"xSoP"4GqGBxpYi3vvnbx' +
                 '!dgvSv"$"n/o=hQiy xvOgvHf#kSqGxPK~Yi0hetooxzqoc!1hco1of!h1xP!-2~>xAP%8eq&heh%Txlt2,FqO o"ZM$%kRvxpjK~2~Nxv"4jpg3!a#k$KhCJ~i0h:Zrj&Zdbqn' +
                 'P!q7VFj$p~9oc4Tp9YwiRhMkodoqTH8oS%jknPv=Ji=g"MxjS!hrqokrq$!%dqq7tyxqtlgP"eg@"eX!%"ethQ,I;!xMhS%6orb6vHXrE<~FU/$p~j%xR"cdo"hxlgZethpi#<F' +
@@ -35,9 +38,9 @@
                 'kRhpi#<VtOX!"AZceq%#k"ehP!xlBxv:YV>pxZxrb@kHff!S!$!=J,tOjT$frq@k:!tlgZeg!keqWltsz|~  |z~~|yzz|x##|wyy|v!!|uz~|txx|sww|r#u|q#v|p#y|o#!|n' +
                 'r |mss|lz |k%!|j#"|i t|hq!|gqv|f""|e#l|dxu|c%v|bo%|aqp|`y~|_#m|Zv!|Ytm|Xqx|Wtx|Vyu|Ua~|T"!|Srx|Rnx|Qpi_|P#$|Otu|Ntp|Mno|Ld |K!p|Jt_|IN ' +
                 '|Hro|Gkp|Ft`|EgpW|Di`|Cxy|Bj!|Aex|@%%|>Ih|=xn|<sw|;o$|:rt|9Xp|8"v|7nW_|6"&|5g!n|4pb|3Lx|2UY|1#z|0p |/#%|-tr|,yl'),
-          I = D('x tnssntn!mntnvzbsaisais!jis!jizthmevvq s~ns~sqys~ysev~vqqZlzaY"l~a~ydppppfffffowldqxplzaY"l~a~ydqk vccuz !e!qkkq!e! vccuz kq k`hl!xph ' +
-                '"ybYZ!bm_vj gl`t gh "hZgyZypgg!rz`zg`m! m_v~m _k! ghxp`Ybz! m!bm m~vj |~  |z""|y!!|x~~|w y"|vzz|uz !x~! v|tyy|s!"|r~ |qxx|pr"|oww|nsq~|' +
-                'mz"|l y|ktt|jv"|issx|hy!|g!p|foo|ex~|dvvvj|cuu|bxr|aty|`!~|_g |Z~"|Yzy'),
+          I = D('x tgssgtg!igtgvzxqsmm!fssxs!fssxztjix~vvp s~gs~spys~ysx~v~vpp~" rfoooonnw yvvvfpxo rfpl h e~!pllpe~! h lp l!~j jxoj "yxqzy~"eqidvf dj~t' +
+                ' kj "j~"ky~"yokk!qz!~zk!~i! idv~i dl! kjxo!~zyxqz! ieqi i~vf |~  |z""|y!!|x~~|w y"|vzz|uz !x~! v|tyy|s!"|ryztyzy" y~ty~yvvv|q~ |pxx|oq"' +
+                '|nwwwwwwwwwww|mtyssxs|ltt|k!o|jy!|iz"|hvuuuuuz|gsp~|fv"|e!x|dk '),
           z, t, w, m, h, f, v, u, q, b;
 
       function D(k) {
@@ -113,7 +116,7 @@
       }
 
       function B(a, r, e, s, x, y) {
-          a = U.getElementById('b');
+          a = U.getElementById('boxbot4k');
           if (!!a[X]) {
               w = a[X]('2d');
               z = Array(P[N]);
@@ -218,17 +221,17 @@
         background-color: #000;
         margin: 0;
       }
-      #w {
+      #wrapper {
         display: table;
         position: absolute;
         height: 100%;
         width: 100%;
       }
-      #c {
+      #container {
         display: table-cell;
         vertical-align: middle;
       }
-      #b {
+      #boxbot4k {
         display: block;
         height: 384px;
         margin: 0 auto;
@@ -237,9 +240,9 @@
     </style>
   </head>
   <body onload="B();">
-    <div id="w">
-      <div id="c">
-        <canvas id="b" width="448" height="384"></canvas>
+    <div id="wrapper">
+      <div id="container">
+        <canvas id="boxbot4k" width="448" height="384"></canvas>
       </div>
     </div>
   </body>
