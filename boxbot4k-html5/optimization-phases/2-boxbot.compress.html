@@ -242,7 +242,6 @@
       }
 
       function handleKeyPressed(event) {
-          event.preventDefault();
           if (!keyPress) {
               keyPress = true;
               var command = '';
@@ -271,7 +270,12 @@
                 case 13: // enter
                     command = COMMAND_CONTINUE;
                     break;
+                default:
+                    if (gameStarted) {
+                      return;
+                    }
               }
+              event.preventDefault();
               if (command != '' || !gameStarted) {
                   handleCommand(command);
               }

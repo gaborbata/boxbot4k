@@ -135,7 +135,6 @@
             l();
             p();
             O[A]('keydown', function(e, s, n, i, d) {
-                e.preventDefault();
                 if (!b) {
                     b = !0;
                     if (q) {
@@ -199,6 +198,7 @@
                     } else {
                         q = !0;
                     }
+                    e.preventDefault();
                     p();
                 }
             }, !1);
