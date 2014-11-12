@@ -16,7 +16,6 @@
           S = 'fillStyle',
           X = 'getContext',
           N = 'length',
-          U = document,
           O = window,
           R = 'rgba(0,0,0,0)',
           Q = 'rgba(0,0,0,0.3)',
@@ -116,14 +115,14 @@
       }
 
       function B(a, r, e, s, x, y) {
-          a = U.getElementById('boxbot4k');
-          if (!!a[X]) {
+          a = O['boxbot4k'];
+          if (a != null && !!a[X]) {
               w = a[X]('2d');
               z = Array(P[N]);
               r = Array(256);
               for (a = z[N]; a--;) {
                   g(I, P[a][3], r);
-                  e = U.createElement('canvas');
+                  e = document.createElement('canvas');
                   e.width = Z;
                   e.height = Z;
                   s = e[X]('2d');
