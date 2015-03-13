@@ -46,46 +46,22 @@
       var IMAGE_SIZE = 16;
       var BLOCK_SIZE = IMAGE_SIZE * IMAGE_SCALE;
 
-      var LEVEL_DATA =
-        'R )#/ #"!#/ #!!*#+ #%!!%!!#+ #!$(!"#+ -#~   )#/ #!!(#- #!!%$#- #!&"!#- ##(!#. *#e )#/ #!!#' +
-        '/ #!!(#- #!!%!#- ##&#"#- #!!$!#- #)!#- #!!(#- )#g )#/ #!!#/ #!!#/ #!$(#- #!%%!#- #"!!"#- +' +
-        '#s *#. #(!#. #"#%##- #!!$!#- #"!%!#- (#!!#/ )#~   -#+ #+!#+ #!"&&%$#+ #+!#+ *#!!#/ )#t )#-' +
-        ' (#!!#- #"%%"#- #!#!!#- #!$!!#- (#!!#/ )#f )#- (#!!#- #)!#- #(!"(#+ (#!#$"#- #!%%!#- #!!%!' +
-        '#- #"!(#- )#f +#, ##)!#, #!%##!##+ #+!#+ ##!!"$"#, #%#!(#, #(!#. *#f )#. ##!!)#+ #+!#+ #!"' +
-        '"#%!#+ (#!!%!#- (#$!#/ )#f *#. #(!#* *#!#!##) #!!#!%(!#) #(!%!!#!#) #!""!#(!#) (#$!*#+ #!!' +
-        '#/ )#g *#. #(!(#* (#$%"!!#* #!!&#(!#* #(!%"!##* *#!!#/ )#r )#/ #!!)#, #!"(!#, #!$%%!#, ##!' +
-        '!(#- #"!#/ #!!#/ )#g *#- ##!!"#- #!%#"#- #)!##, ##!#!!#- #%!$!#- #(!##- *#h *#. #(!#+ )#(!' +
-        '#+ #"&(!##+ #!%#!!#, #$!#!!#, ,#s )#/ #"$#/ #!!(#- #!%!!#- #!%"!#- #!!(#- )#v *#, (#(!#, #' +
-        '!%!#!##+ #!#!!"!#+ #!"!!#!#+ ##%#"%!#, #$!!(#, *#f ,#, #)!"#, #!(#"#+ ##!#(!#+ #!!#!%!#+ #' +
-        '!!$!%##+ #!!#!!#, ,#e )#- (#!!)#* #)!#$"#* #)!%%"#* #!!##!%"#* *#(!#. *#r *#. #!$!(#, #!#(' +
-        '!#+ ##%"&#!#+ #!%"&!!#+ #!#!!(#+ #)!#- +#W )#/ #!!#/ #%$#/ #"%(#, ##"%!!##+ #!"#(!##* #,!#' +
-        '* *#(!#. *#U )#/ #!!(#- #!$!!#- #"!#%##, ##"%!!#, #!%"#!#, #!#(!#, #)!##, (#!!#/ )#W ,#+ #' +
-        '#!!#!!(#) #!%!#!%!!#) #!!"$"(!#) ##%!#!%(#* #!"!"!#, ,#~   )#/ #!!*#+ #!!"&"!#+ #!%!%!$#+ ' +
-        '#(!)#+ *#t ,#, #"!"!"#, #(!#!#, ##!!%!#- #!%%##- #!!$#. *#t )#/ #!!##- ##(!##, #!$%%!#, #!' +
-        '#!#!#, #""(!#, ,#t )#/ #!"#- (#!!##, #!%%!!#, #*!#, ##%#!##- #"$"#. *#g *#. #(!#, (#%#!##+' +
-        ' #!!%$%!#+ #!#)!#+ #("!(#+ +#r +#- #)!#- #!!"%*#) ##&"%)!#* #$"%#(!#* ##!!*#+ )#~ * ,#+ ##' +
-        '!"(!#+ #!%&%#!#+ #!#$(!#+ #!!"!(#+ +#~ ( ,#+ ##)"$##* #!!%!#%!#* #!!%!!%!#* #!!##(!#* .#~ ' +
-        ') )#, )#!$#, #!!%%!#, #!"!%!#, ##""!##- *#s -#+ #!"$"!!#+ #!%!%!!#+ ##&#&(#+ #*!#, #*!#, #' +
-        '!!)#, )#g ,#, #!"(!#, #!!%""#, (#%&(#+ #!%$(!#+ #+!#+ -#s )#- (#!!#- #)!##, #!#!""#, #!(%$' +
-        '#, (#!#!#. #!!"#. *#t *#, (#(!#, #!(%$#, #("!##, #)!#- +#u *#- ##(!#- #!$!!#, ##!%!##, #!%' +
-        '&!#- #!#"!#- #!!"##- *#h )#/ #!!#- (#%!##, #!!%!!#, #$#&"!##+ #!!&"!!#+ (#)!#- +#X *#, (#$' +
-        '!!#, #"!%!"#, #!!%!##+ (#!(#+ ##!%!!#, #*!#, #"!!(#, *#h )#/ #!!##. #$"!#. #""%##- #!%%!#-' +
-        ' #)!#- +#t )#/ #!!(#+ (#!"!!#+ #$(%!!#+ #(!#"!#+ (#"!!##- *#s )#/ #!!#/ #!!)#, #!""&!#+ ##' +
-        '!%%$!#+ #(!)#+ #(!#. *#e *#. #(!(#, #!!"%!(#* ##!"#!%!#+ #!"#!%$#+ ##"!!%!#, #!!)#, )#e )#' +
-        '/ #!!*#+ #)!$!##* #!"&"%&!#* ##!!#%!!#+ ##(!(#, *#v )#+ *#!!#+ #(!""%##* #!%$#!%!#* ##%""(' +
-        '!#+ #!!##!!#+ -#r *#. #(!#. #!#%##, ##""$!#, #!&"%!#, #!#!%##, #)!#- +#d (#0 #"*#, #("!!#,' +
-        ' #!#!#!(#* #(!%%!$#* (#!!%%!#, (#(!#. *#c -#+ #!!##!"#* ##(!%!!#* #!!%#%!"#* #(!#$!##* #"!' +
-        '##!!#+ -#s *#. #(!#- ##(!(#+ #!)%!#+ #!)"!#+ ##!$!(#, *#r -#+ #""!$""#+ #!!(%!#+ )#!)#* #,' +
-        '!#* #*!%!#* #!!+#* )#I ';
+      var LEVEL_DATA = decompress(
+          's,FjK~q-#ccH$Z":Yw`D9q%$po&TpxZQFU9qGx&jpq$Kgp9Y~FUU;x4Gjv"pWmV>0j/Cq$KBGx2w`iOgvH6&%$rgv:2Viyxaj@"poa;vpx2iyxagph"xSoP"4GqGBxpYi3vvnbx' +
+          '!dgvSv"$"n/o=hQiy xvOgvHf#kSqGxPK~Yi0hetooxzqoc!1hco1of!h1xP!-2~>xAP%8eq&heh%Txlt2,FqO o"ZM$%kRvxpjK~2~Nxv"4jpg3!a#k$KhCJ~i0h:Zrj&Zdbqn' +
+          'P!q7VFj$p~9oc4Tp9YwiRhMkodoqTH8oS%jknPv=Ji=g"MxjS!hrqokrq$!%dqq7tyxqtlgP"eg@"eX!%"ethQ,I;!xMhS%6orb6vHXrE<~FU/$p~j%xR"cdo"hxlgZethpi#<F' +
+          '9;vpB/3"cnb"oMhng3Ut<~WSvX1okoc1q"$"Z1xkbxeoTT7w`Dq-q6THkk$rhOJVi=BT"nhoRvGb%Cq$QVDXyxZL;%kMoonj"Z7VDo"pxqLbcng!R%oCj$"Q~>R/odq%$kHgrjf' +
+          '!xrWm,Wygpq"%t1x&"cveP"%hAv-YwVWS!"Zrb&%oHPZrqTxrWmwyzWSff$xlqk#keqckeXZetJw,Oi!$nq%kMTkRf!CJVtOo"$8HkcS&#&xr55qOim~WM"Znq%fR/&xrb$Zrgv' +
+          ':YVtyxagLoofnb@$Roo0q"QViRhnb@$njf!LEmwNxZp;vR!kLb&KojKq"CJ~Dax#kLqcnP#&Tdq&8SE<~iRPvnBk"nqkdxoxS!cn5jv=J~DXy PT0j"%CbGEmVDXSo8rP@crhBS' +
+          'jvCJVFUqO of&!S!@$!rhOhQ>=q"kxA!"okH"b$S8knqOimFq-g$!xlo6"%&!Av#cSZ=Jwiutqrhf%xlb$okA%fZrXv:Y,>0o/3f$!M&"kMbLE<V xp~ jtnjfvMooxeh%k$Aq%' +
+          'kRhpi#<VtOX!"AZceq%#k"ehP!xlBxv:YV>pxZxrb@kHff!S!$!=J,tOjT$frq@k:!tlgZeg!keqWltsz|,yl|-tr|/#%|0p |1#z|2UY|3Lx|4pb|5g!n|6"&|7nW_|8"v|9Xp' +
+          '|:rt|;o$|<sw|=xn|>Ih|@%%|Aex|Bj!|Cxy|Di`|EgpW|Ft`|Gkp|Hro|IN |Jt_|K!p|Ld |Mno|Ntp|Otu|P#$|Qpi_|Rnx|Srx|T"!|Ua~|Vyu|Wtx|Xqx|Ytm|Zv!|_#m|' +
+          '`y~|aqp|bo%|c%v|dxu|e#l|f""|gqv|hq!|i t|j#"|k%!|lz |mss|nr |o#!|p#y|q#v|r#u|sww|txx|uz~|v!!|wyy|x##|yzz|z~~|~  ');
 
-      var IMAGE_DATA =
-        '* *!"/ !"!"!"/ *!"/ !("!"/ *!"/ +", !",!"!") !",!"!") !"!*"!"!") !"!*"!"!") "",!("+ -". !"' +
-        '  !"/ !"  !"- (!"  (!"+ )"  )"7 " !!""+!""!!" !!  +!  !!6"( "( "( "( " !!" !!" !!" !!" !!"' +
-        ' !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!" !!6"4 " !!""+!""!' +
-        '!" !!  +!  !!6"- -! +" !+ ! +" !+ ! +" !+ ! +" !+ ! +" !+ ! +" !+ !- 5!- !+ ! +" !+ ! +" !' +
-        '+ ! +" !+ ! +" !+ ! +" !+ ! +" -!. .!  (! (!, "(! "!!, ""!!  "!, ("!( " ." !( " (!  )! !( ' +
-        '"(! "(!  "!( "!!  "!!( "!( "!( "!( ""!  ""!( "!  ("! ("!( " )"  (" !( " .! !( "(!, "!  ""!' +
-        '!, ""! ("!, (" ("  ." ';
+      var IMAGE_DATA = decompress(
+          'x tgssgtg!igtgvzxqsmm!fssxs!fssxztjix~vvp s~gs~spys~ysx~v~vpp~" rfoooonnw yvvvfpxo rfpl h e~!pllpe~! h lp l!~j jxoj "yxqzy~"eqidvf dj~t' +
+          ' kj "j~"ky~"yokk!qz!~zk!~i! idv~i dl! kjxo!~zyxqz! ieqi i~vf |dk |e!x|fv"|gsp~|hvuuuuuz|iz"|jy!|k!o|ltt|mtyssxs|nwwwwwwwwwww|oq"|pxx|q~' +
+          ' |ryztyzy" y~ty~yvvv|s!"|tyy|uz !x~! v|vzz|w y"|x~~|y!!|z""|~  ');
 
       var IMAGE_INDEX = 3;
       var IMAGE_PALETTE = [
@@ -128,6 +104,15 @@
       var FONT_COLOR = 'rgba(255, 255, 255, 0.4)';
       var TEXT_ALIGN = 'center';
 
+      var COMMAND_UP = 'up';
+      var COMMAND_DOWN = 'down';
+      var COMMAND_LEFT = 'left';
+      var COMMAND_RIGHT = 'right';
+      var COMMAND_NEXT = 'next';
+      var COMMAND_PREV = 'prev';
+      var COMMAND_RESET = 'reset';
+      var COMMAND_CONTINUE = 'continue';
+
       var images;
       var table;
       var context;
@@ -146,22 +131,19 @@
           return format;
       }
 
-      // input: string (0x20-0x26: data, >= 0x27: repetition marker)
+      function decompress(k) {
+          var i, x = k.split("|"), y = x.shift();
+          for (i = 0; i < x.length; i++) {
+              y = y.replace(new RegExp(x[i].charAt(0),'g'), x[i].substring(1));
+          }
+          return y;
+      }
+
       function getData(input, index, output) {
-          var r = 1, d = 0, s = 0, c;
-          for (var j = 0; j < input.length; j++) {
-              c = input.charCodeAt(j);
-              if (c >= 0x27) {
-                  r = c - 0x25;
-              } else {
-                  for (var i = 0; i < r; i++) {
-                      if (d >= index * output.length && s < output.length) {
-                        output[s++] = c - 0x20;
-                      }
-                      d++;
-                  }
-                  r=1;
-              }
+          var counter = 0;
+          while (counter < output.length) {
+              output[counter] = input.charCodeAt(index * output.length + counter) - 0x20;
+              counter++;
           }
       }
 
@@ -251,6 +233,10 @@
           }
       }
 
+      function handleButtonClick(event) {
+        handleCommand(event.target.id);
+      }
+
       function handleKeyReleased() {
         keyPress = false;
       }
@@ -258,79 +244,118 @@
       function handleKeyPressed(event) {
           if (!keyPress) {
               keyPress = true;
-              if (gameStarted) {
-                  var direction = { x: 0, y: 0 };
-                  switch (event.keyCode) {
-                      case 38: // up
-                          direction.y = -1;
-                          break;
-                      case 40: // down
-                          direction.y = 1;
-                          break;
-                      case 37: // left
-                          direction.x = -1;
-                          break;
-                      case 39: // right
-                          direction.x = 1;
-                          break;
-                      case 33: // page up
-                          level++;
-                          loadLevel();
-                          break;
-                      case 34: // page down
-                          level--;
-                          loadLevel();
-                          break;
-                      case 8: // backspace
-                          loadLevel();
-                          break;
-                      case 13: // enter
-                          if (levelSolved) {
-                              level++;
-                              loadLevel();
-                          }
-                          break;
-                      default:
-                          return;
-                  }
-                  if ((direction.x != 0 || direction.y != 0) && !levelSolved) {
-                      var step = TABLE_WIDTH * (playerPos.y + direction.y) + playerPos.x + direction.x;
-                      var nextStep = TABLE_WIDTH * (playerPos.y + direction.y * 2) + playerPos.x + direction.x * 2;
-                      if (table[step] == FLOOR || table[step] == GOAL) {
-                          playerPos.x += direction.x;
-                          playerPos.y += direction.y;
-                          moves++;
-                      } else if ((table[step] == BOX || table[step] == BOX_ON_GOAL) && (table[nextStep] == FLOOR || table[nextStep] == GOAL)) {
-                          table[step] = table[step] == BOX ? FLOOR : GOAL;
-                          table[nextStep] = table[nextStep] == FLOOR ? BOX : BOX_ON_GOAL;
-                          playerPos.x += direction.x;
-                          playerPos.y += direction.y;
-                          moves++;
-                          pushes++;
-                      }
-                      var boxesOnGoal = true;
-                      for (var i = 0; i < table.length; i++) {
-                          if (table[i] == BOX) {
-                              boxesOnGoal = false;
-                          }
-                      }
-                      levelSolved = boxesOnGoal;
-                  }
-              } else {
-                  gameStarted = true;
+              var command = '';
+              switch (event.keyCode) {
+                case 38: // up
+                    command = COMMAND_UP;
+                    break;
+                case 40: // down
+                    command = COMMAND_DOWN;
+                    break;
+                case 37: // left
+                    command = COMMAND_LEFT;
+                    break;
+                case 39: // right
+                    command = COMMAND_RIGHT;
+                    break;
+                case 33: // page up
+                    command = COMMAND_NEXT;
+                    break;
+                case 34: // page down
+                    command = COMMAND_PREV;
+                    break;
+                case 8: // backspace
+                    command = COMMAND_RESET;
+                    break;
+                case 13: // enter
+                    command = COMMAND_CONTINUE;
+                    break;
+                default:
+                    if (gameStarted) {
+                      return;
+                    }
               }
               event.preventDefault();
-              paint();
+              if (command != '' || !gameStarted) {
+                  handleCommand(command);
+              }
           }
+      }
+
+      function handleCommand(command) {
+          if (gameStarted) {
+              var direction = { x: 0, y: 0 };
+              switch (command) {
+                case COMMAND_UP:
+                    direction.y = -1;
+                    break;
+                case COMMAND_DOWN:
+                    direction.y = 1;
+                    break;
+                case COMMAND_LEFT:
+                    direction.x = -1;
+                    break;
+                case COMMAND_RIGHT:
+                    direction.x = 1;
+                    break;
+                case COMMAND_NEXT:
+                    level++;
+                    loadLevel();
+                    break;
+                case COMMAND_PREV:
+                    level--;
+                    loadLevel();
+                    break;
+                case COMMAND_RESET:
+                    loadLevel();
+                    break;
+                case COMMAND_CONTINUE:
+                    if (levelSolved) {
+                        level++;
+                        loadLevel();
+                    }
+                    break;
+              }
+              if ((direction.x != 0 || direction.y != 0) && !levelSolved) {
+                  var step = TABLE_WIDTH * (playerPos.y + direction.y) + playerPos.x + direction.x;
+                  var nextStep = TABLE_WIDTH * (playerPos.y + direction.y * 2) + playerPos.x + direction.x * 2;
+                  if (table[step] == FLOOR || table[step] == GOAL) {
+                      playerPos.x += direction.x;
+                      playerPos.y += direction.y;
+                      moves++;
+                  } else if ((table[step] == BOX || table[step] == BOX_ON_GOAL) && (table[nextStep] == FLOOR || table[nextStep] == GOAL)) {
+                      table[step] = table[step] == BOX ? FLOOR : GOAL;
+                      table[nextStep] = table[nextStep] == FLOOR ? BOX : BOX_ON_GOAL;
+                      playerPos.x += direction.x;
+                      playerPos.y += direction.y;
+                      moves++;
+                      pushes++;
+                  }
+                  var boxesOnGoal = true;
+                  for (var i = 0; i < table.length; i++) {
+                      if (table[i] == BOX) {
+                          boxesOnGoal = false;
+                      }
+                  }
+                  levelSolved = boxesOnGoal;
+              }
+          } else {
+              gameStarted = true;
+          }
+          paint();
       }
 
       function addEventListeners() {
           window.addEventListener('keydown', handleKeyPressed, false);
           window.addEventListener('keyup', handleKeyReleased, false);
+          var buttons = document.getElementsByTagName('button');
+          for (var i = 0; i < buttons.length; i++) {
+              buttons[i].addEventListener('click', handleButtonClick, false);
+          }
       }
 
       function init() {
-          var canvas = document.getElementById('boxbot4k');
+          var canvas = document.getElementById('boxbot-canvas');
           if (canvas != null && !!canvas.getContext) {
               context = canvas.getContext('2d');
               images = generateImages();
@@ -348,32 +373,123 @@
       }
     </script>
     <style type="text/css">
+      *, *:after, *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
       body {
-        background-color: #000;
+        background-color: black;
+        color: white;
         margin: 0;
       }
-      #wrapper {
+
+      [class*='col-'] {
+        float: left;
+        padding-right: 5px;
+      }
+
+      .grid {
+        width: 458px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .grid:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .grid-pad {
+        padding-left: 5px;
+      }
+
+      .col-2-12 {
+        width: 16.667%;
+      }
+
+      .col-12-12 {
+        width: 100%;
+      }
+
+      .push-2-12 {
+        margin-left: 16.667%;
+      }
+
+      .push-4-12 {
+        margin-left: 33.334%;
+      }
+
+      #boxbot-wrapper {
         display: table;
         position: absolute;
         height: 100%;
         width: 100%;
       }
-      #container {
+
+      #boxbot-container {
         display: table-cell;
         vertical-align: middle;
       }
-      #boxbot4k {
+
+      #boxbot-container canvas {
         display: block;
         height: 384px;
-        margin: 0 auto;
+        margin-bottom: 5px;
         width: 448px;
+      }
+
+      #boxbot-container button {
+        background-color: black;
+        border: 1px solid #555;
+        color: #555;
+        font-family: sans-serif;
+        font-size: 16px;
+        height: 36px;
+        margin-bottom: 5px;
+        padding: 6px 0;
+        width: 100%;
       }
     </style>
   </head>
   <body onload="init();">
-    <div id="wrapper">
-      <div id="container">
-        <canvas id="boxbot4k" width="448" height="384"></canvas>
+    <div id="boxbot-wrapper">
+      <div id="boxbot-container">
+        <div class="grid grid-pad">
+          <div class="col-12-12">
+            <canvas id="boxbot-canvas" width="448" height="384"></canvas>
+          </div>
+        </div>
+        <div class="grid grid-pad">
+          <div class="col-2-12">
+            <button id="prev">Prev.</button>
+          </div>
+          <div class="col-2-12">
+            <button id="next">Next</button>
+          </div>
+          <div class="col-2-12 push-4-12">
+            <button id="up">&#9650;</button>
+          </div>
+        </div>
+        <div class="grid grid-pad">
+          <div class="col-2-12">
+            <button id="reset">Reset</button>
+          </div>
+          <div class="col-2-12">
+            <button id="enter">Enter</button>
+          </div>
+          <div class="col-2-12 push-2-12">
+            <button id="left">&#9664;</button>
+          </div>
+          <div class="col-2-12">
+            <button id="down">&#9660;</button>
+          </div>
+          <div class="col-2-12">
+            <button id="right">&#9654;</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>

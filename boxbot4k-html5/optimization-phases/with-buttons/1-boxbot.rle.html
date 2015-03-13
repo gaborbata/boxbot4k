@@ -128,6 +128,15 @@
       var FONT_COLOR = 'rgba(255, 255, 255, 0.4)';
       var TEXT_ALIGN = 'center';
 
+      var COMMAND_UP = 'up';
+      var COMMAND_DOWN = 'down';
+      var COMMAND_LEFT = 'left';
+      var COMMAND_RIGHT = 'right';
+      var COMMAND_NEXT = 'next';
+      var COMMAND_PREV = 'prev';
+      var COMMAND_RESET = 'reset';
+      var COMMAND_CONTINUE = 'continue';
+
       var images;
       var table;
       var context;
@@ -251,6 +260,10 @@
           }
       }
 
+      function handleButtonClick(event) {
+        handleCommand(event.target.id);
+      }
+
       function handleKeyReleased() {
         keyPress = false;
       }
@@ -258,79 +271,118 @@
       function handleKeyPressed(event) {
           if (!keyPress) {
               keyPress = true;
-              if (gameStarted) {
-                  var direction = { x: 0, y: 0 };
-                  switch (event.keyCode) {
-                      case 38: // up
-                          direction.y = -1;
-                          break;
-                      case 40: // down
-                          direction.y = 1;
-                          break;
-                      case 37: // left
-                          direction.x = -1;
-                          break;
-                      case 39: // right
-                          direction.x = 1;
-                          break;
-                      case 33: // page up
-                          level++;
-                          loadLevel();
-                          break;
-                      case 34: // page down
-                          level--;
-                          loadLevel();
-                          break;
-                      case 8: // backspace
-                          loadLevel();
-                          break;
-                      case 13: // enter
-                          if (levelSolved) {
-                              level++;
-                              loadLevel();
-                          }
-                          break;
-                      default:
-                          return;
-                  }
-                  if ((direction.x != 0 || direction.y != 0) && !levelSolved) {
-                      var step = TABLE_WIDTH * (playerPos.y + direction.y) + playerPos.x + direction.x;
-                      var nextStep = TABLE_WIDTH * (playerPos.y + direction.y * 2) + playerPos.x + direction.x * 2;
-                      if (table[step] == FLOOR || table[step] == GOAL) {
-                          playerPos.x += direction.x;
-                          playerPos.y += direction.y;
-                          moves++;
-                      } else if ((table[step] == BOX || table[step] == BOX_ON_GOAL) && (table[nextStep] == FLOOR || table[nextStep] == GOAL)) {
-                          table[step] = table[step] == BOX ? FLOOR : GOAL;
-                          table[nextStep] = table[nextStep] == FLOOR ? BOX : BOX_ON_GOAL;
-                          playerPos.x += direction.x;
-                          playerPos.y += direction.y;
-                          moves++;
-                          pushes++;
-                      }
-                      var boxesOnGoal = true;
-                      for (var i = 0; i < table.length; i++) {
-                          if (table[i] == BOX) {
-                              boxesOnGoal = false;
-                          }
-                      }
-                      levelSolved = boxesOnGoal;
-                  }
-              } else {
-                  gameStarted = true;
+              var command = '';
+              switch (event.keyCode) {
+                case 38: // up
+                    command = COMMAND_UP;
+                    break;
+                case 40: // down
+                    command = COMMAND_DOWN;
+                    break;
+                case 37: // left
+                    command = COMMAND_LEFT;
+                    break;
+                case 39: // right
+                    command = COMMAND_RIGHT;
+                    break;
+                case 33: // page up
+                    command = COMMAND_NEXT;
+                    break;
+                case 34: // page down
+                    command = COMMAND_PREV;
+                    break;
+                case 8: // backspace
+                    command = COMMAND_RESET;
+                    break;
+                case 13: // enter
+                    command = COMMAND_CONTINUE;
+                    break;
+                default:
+                    if (gameStarted) {
+                      return;
+                    }
               }
               event.preventDefault();
-              paint();
+              if (command != '' || !gameStarted) {
+                  handleCommand(command);
+              }
           }
+      }
+
+      function handleCommand(command) {
+          if (gameStarted) {
+              var direction = { x: 0, y: 0 };
+              switch (command) {
+                case COMMAND_UP:
+                    direction.y = -1;
+                    break;
+                case COMMAND_DOWN:
+                    direction.y = 1;
+                    break;
+                case COMMAND_LEFT:
+                    direction.x = -1;
+                    break;
+                case COMMAND_RIGHT:
+                    direction.x = 1;
+                    break;
+                case COMMAND_NEXT:
+                    level++;
+                    loadLevel();
+                    break;
+                case COMMAND_PREV:
+                    level--;
+                    loadLevel();
+                    break;
+                case COMMAND_RESET:
+                    loadLevel();
+                    break;
+                case COMMAND_CONTINUE:
+                    if (levelSolved) {
+                        level++;
+                        loadLevel();
+                    }
+                    break;
+              }
+              if ((direction.x != 0 || direction.y != 0) && !levelSolved) {
+                  var step = TABLE_WIDTH * (playerPos.y + direction.y) + playerPos.x + direction.x;
+                  var nextStep = TABLE_WIDTH * (playerPos.y + direction.y * 2) + playerPos.x + direction.x * 2;
+                  if (table[step] == FLOOR || table[step] == GOAL) {
+                      playerPos.x += direction.x;
+                      playerPos.y += direction.y;
+                      moves++;
+                  } else if ((table[step] == BOX || table[step] == BOX_ON_GOAL) && (table[nextStep] == FLOOR || table[nextStep] == GOAL)) {
+                      table[step] = table[step] == BOX ? FLOOR : GOAL;
+                      table[nextStep] = table[nextStep] == FLOOR ? BOX : BOX_ON_GOAL;
+                      playerPos.x += direction.x;
+                      playerPos.y += direction.y;
+                      moves++;
+                      pushes++;
+                  }
+                  var boxesOnGoal = true;
+                  for (var i = 0; i < table.length; i++) {
+                      if (table[i] == BOX) {
+                          boxesOnGoal = false;
+                      }
+                  }
+                  levelSolved = boxesOnGoal;
+              }
+          } else {
+              gameStarted = true;
+          }
+          paint();
       }
 
       function addEventListeners() {
           window.addEventListener('keydown', handleKeyPressed, false);
           window.addEventListener('keyup', handleKeyReleased, false);
+          var buttons = document.getElementsByTagName('button');
+          for (var i = 0; i < buttons.length; i++) {
+              buttons[i].addEventListener('click', handleButtonClick, false);
+          }
       }
 
       function init() {
-          var canvas = document.getElementById('boxbot4k');
+          var canvas = document.getElementById('boxbot-canvas');
           if (canvas != null && !!canvas.getContext) {
               context = canvas.getContext('2d');
               images = generateImages();
@@ -348,32 +400,123 @@
       }
     </script>
     <style type="text/css">
+      *, *:after, *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
       body {
-        background-color: #000;
+        background-color: black;
+        color: white;
         margin: 0;
       }
-      #wrapper {
+
+      [class*='col-'] {
+        float: left;
+        padding-right: 5px;
+      }
+
+      .grid {
+        width: 458px;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      .grid:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .grid-pad {
+        padding-left: 5px;
+      }
+
+      .col-2-12 {
+        width: 16.667%;
+      }
+
+      .col-12-12 {
+        width: 100%;
+      }
+
+      .push-2-12 {
+        margin-left: 16.667%;
+      }
+
+      .push-4-12 {
+        margin-left: 33.334%;
+      }
+
+      #boxbot-wrapper {
         display: table;
         position: absolute;
         height: 100%;
         width: 100%;
       }
-      #container {
+
+      #boxbot-container {
         display: table-cell;
         vertical-align: middle;
       }
-      #boxbot4k {
+
+      #boxbot-container canvas {
         display: block;
         height: 384px;
-        margin: 0 auto;
+        margin-bottom: 5px;
         width: 448px;
+      }
+
+      #boxbot-container button {
+        background-color: black;
+        border: 1px solid #555;
+        color: #555;
+        font-family: sans-serif;
+        font-size: 16px;
+        height: 36px;
+        margin-bottom: 5px;
+        padding: 6px 0;
+        width: 100%;
       }
     </style>
   </head>
   <body onload="init();">
-    <div id="wrapper">
-      <div id="container">
-        <canvas id="boxbot4k" width="448" height="384"></canvas>
+    <div id="boxbot-wrapper">
+      <div id="boxbot-container">
+        <div class="grid grid-pad">
+          <div class="col-12-12">
+            <canvas id="boxbot-canvas" width="448" height="384"></canvas>
+          </div>
+        </div>
+        <div class="grid grid-pad">
+          <div class="col-2-12">
+            <button id="prev">Prev.</button>
+          </div>
+          <div class="col-2-12">
+            <button id="next">Next</button>
+          </div>
+          <div class="col-2-12 push-4-12">
+            <button id="up">&#9650;</button>
+          </div>
+        </div>
+        <div class="grid grid-pad">
+          <div class="col-2-12">
+            <button id="reset">Reset</button>
+          </div>
+          <div class="col-2-12">
+            <button id="enter">Enter</button>
+          </div>
+          <div class="col-2-12 push-2-12">
+            <button id="left">&#9664;</button>
+          </div>
+          <div class="col-2-12">
+            <button id="down">&#9660;</button>
+          </div>
+          <div class="col-2-12">
+            <button id="right">&#9654;</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
