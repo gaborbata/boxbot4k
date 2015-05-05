@@ -38,7 +38,7 @@
               <dependency>
                 <groupId>net.sf.proguard</groupId>
                 <artifactId>proguard-base</artifactId>
-                <version>4.10</version>
+                <version>5.2.1</version>
               </dependency>
             </dependencies>
             <executions>
@@ -51,7 +51,7 @@
               </execution>
             </executions>
             <configuration>
-              <proguardVersion>4.10</proguardVersion>
+              <proguardVersion>5.2.1</proguardVersion>
               <options>
                 <option>-keep public class B{public static void main(java.lang.String[]);}</option>
               </options>

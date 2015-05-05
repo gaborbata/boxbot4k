@@ -17,7 +17,7 @@ buildscript {
         isWindows = org.gradle.internal.os.OperatingSystem.current().windows
     }
     dependencies {
-        classpath "net.sf.proguard:proguard-gradle:4.10"
+        classpath "net.sf.proguard:proguard-gradle:5.+"
     }
 }
 
