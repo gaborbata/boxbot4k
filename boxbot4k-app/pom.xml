@@ -111,18 +111,19 @@
             <version>1.2</version>
             <executions>
               <execution>
-                <id>Compress with kzip</id>
+                <id>Compress with advzip</id>
                 <phase>package</phase>
                 <goals>
                   <goal>exec</goal>
                 </goals>
                 <configuration>
-                  <executable>${basedir}/tools/kzip.exe</executable>
+                  <executable>${basedir}/tools/advzip.exe</executable>
                   <workingDirectory>${project.build.directory}/${optimizedOutputDirectory}</workingDirectory>
                   <arguments>
-                    <argument>/r</argument>
-                    <argument>/q</argument>
-                    <argument>/y</argument>
+                    <argument>--add</argument>
+                    <argument>--shrink-insane</argument>
+                    <argument>--iter=100</argument>
+                    <argument>-q</argument>
                     <argument>../${project.build.finalName}.jar</argument>
                     <argument>*.*</argument>
                   </arguments>

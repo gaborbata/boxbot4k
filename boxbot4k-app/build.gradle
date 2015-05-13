@@ -7,17 +7,17 @@ buildscript {
     repositories {
         mavenLocal()
         mavenCentral()
-        maven { url "http://repo.spring.io/libs-release" }
+        maven { url 'http://repo.spring.io/libs-release' }
     }
     ext {
-        appName = "boxbot4k-app"
-        appVersion = "1.0.1"
+        appName = 'boxbot4k-app'
+        appVersion = '1.0.1'
         finalName = "${appName}-${appVersion}"
         proguardBase = "${appName}-proguard-base"
         isWindows = org.gradle.internal.os.OperatingSystem.current().windows
     }
     dependencies {
-        classpath "net.sf.proguard:proguard-gradle:5.+"
+        classpath 'net.sf.proguard:proguard-gradle:5.+'
     }
 }
 
@@ -35,12 +35,6 @@ task proguard(type: proguard.gradle.ProGuardTask) {
     enabled = isWindows
 }
 
-task deleteProguardBase(type: Delete, dependsOn: proguard) {
-    description 'Delete ProGuard base jar'
-    delete "${buildDir}/libs/${proguardBase}.jar"
-    enabled = isWindows
-}
-
 task unzip(type: Copy, dependsOn: proguard) {
     description 'Unpack generated jar file'
     from zipTree(file("${buildDir}/libs/${finalName}.jar"))
@@ -48,11 +42,17 @@ task unzip(type: Copy, dependsOn: proguard) {
     enabled = isWindows
 }
 
-task kzip(type:Exec, dependsOn: unzip) {
-    description 'Pack jar with kzip'
+task advzip(type:Exec, dependsOn: unzip) {
+    description 'Pack jar with advzip'
     workingDir "${buildDir}/unpacked"
-    commandLine "${projectDir}/tools/kzip.exe", "/r", "/q", "/y", "${buildDir}/libs/${finalName}.jar", "*.*"
+    commandLine "${projectDir}/tools/advzip.exe", '--add', '--shrink-insane', '--iter=100', '-q', "${buildDir}/libs/${finalName}.jar", '*.*'
     enabled = isWindows
 }
 
-build.dependsOn proguard, deleteProguardBase, unzip, kzip
+task deleteProguardBase(type: Delete, dependsOn: advzip) {
+    description 'Delete ProGuard base jar'
+    delete "${buildDir}/libs/${proguardBase}.jar"
+    enabled = isWindows
+}
+
+build.dependsOn deleteProguardBase
