@@ -56,7 +56,6 @@ task deleteProguardBase(type: Delete, dependsOn: advzip) {
 }
 
 task checkFileSize(dependsOn: deleteProguardBase) << {
-    description 'Check 4k file size limit'
     File file = new File("${buildDir}/libs/${finalName}.jar")
     if (isWindows && file.size() > 4096) {
         throw new GradleException('File size must not exceed 4096 bytes.')
