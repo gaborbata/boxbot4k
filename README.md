@@ -28,7 +28,7 @@ Use `mvn clean package` or `gradle clean build` which do the following:
     * application: `jar cvfe boxbot4k-app.jar B *.class`
     * applet: `jar cvf boxbot4k-applet.jar *.class`
 * optimize/obfuscate classes with [ProGuard](http://proguard.sourceforge.net/)
-* repack jar files with [advzip](http://advancemame.sourceforge.net/comp-readme.html)
+* repack jar files with [advzip](http://advancemame.sourceforge.net/comp-readme.html) using the [zopfli](https://github.com/google/zopfli) compression algorithm
 
 Currently, the build configuration of the project does not support producing optimized output (i.e. jars with 4k size limit) for non-Windows environments which is due to the Windows version of advzip executable.
 advzip is available on Linux and MacOSX as well (in source form) but I haven't got chance to try them and create separate build profiles for those operating systems.
