@@ -5,7 +5,7 @@ Overview
 --------
 BoxBot4k (which is a clone of the famous [Sokoban](http://en.wikipedia.org/wiki/Sokoban) game) is an entry for the [2010 Java 4K](http://www.java4k.com/index.php?action=games&method=view&gid=281) Game Programming Contest. The goal of the contest is to develop the best game possible within four kilobytes (4096 bytes) of data.
 
-![BoxBot4k](https://raw.githubusercontent.com/gaborbata/boxbot4k/master/resources/boxbot4k-screenshot.png)
+![BoxBot4k](https://raw.githubusercontent.com/gaborbata/boxbot4k/master/resources/boxbot4k-capture.gif)
 
 Game rules
 ----------
