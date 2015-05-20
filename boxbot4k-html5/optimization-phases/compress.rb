@@ -1,4 +1,28 @@
+#!/usr/bin/env ruby
+
 # Experimental compression methods for BoxBot4k game data
+#
+# Copyright (c) 2014 Gabor Bata
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation files
+# (the "Software"), to deal in the Software without restriction,
+# including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software,
+# and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+# BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+# ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 LEVEL_DATA =
   '              ' +
@@ -671,6 +695,11 @@ IMAGE_DATA =
 TEXTS = 'LEVEL COMPLETED! PRESS ENTER TO CONTINUE.,BOXBOT4K,,GAME CONTROLS:,ARROW KEYS - MOVE,BACKSPACE - RESTART LEVEL,' +
         'PGUP/PGDN - NEXT/PREVIOUS LEVEL,,PRESS ANY KEY TO START.,(C) 2014 GABOR BATA,     ,LEVEL: ,MOVES: ,PUSHES: '
 
+# RLE compression
+#
+# RLE stands for Run Length Encoding. It is a lossless algorithm that only offers decent compression ratios in specific types of data.
+# It replaces sequences of the same data values within a file by a count number and a single value.
+#
 # input: ascii string (0x20-0x26: data, >= 0x27: repetition marker)
 def rle_compress(input)
   shift = 0x20
@@ -751,11 +780,18 @@ def substitute_chars(input, unused_chars, subst_map)
   return compressed
 end
 
+# Pattern Substitution based compression
+#
+# We substitue a frequently repeating pattern(s) with a code. The code is shorter than than pattern giving us compression.
+# More typically tokens are assigned to according to frequency of occurrenc of patterns:
+# - Count occurrence of tokens
+# - Sort in Descending order
+# - Assign some symbols to highest count tokens
 def compress(input)
   unused_chars = []
   subst_characters = (' ' .. '~').to_a.reverse
   subst_characters.each do |char|
-    # substitution characters must be safe for RegExp point of view
+    # substitution characters must be safe from RegExp point of view
     next if ['|', '\\', '[', ']', '?', '+', '*', '(', ')', '.', '^', '\'', '$', '{', '}'].include?(char)
     unused_chars.push(char) if !input.include?(char)
   end
