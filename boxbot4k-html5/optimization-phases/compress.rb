@@ -700,7 +700,8 @@ TEXTS = 'LEVEL COMPLETED! PRESS ENTER TO CONTINUE.,BOXBOT4K,,GAME CONTROLS:,ARRO
 # RLE stands for Run Length Encoding. It is a lossless algorithm that only offers decent compression ratios in specific types of data.
 # It replaces sequences of the same data values within a file by a count number and a single value.
 #
-# input: ascii string (0x20-0x26: data, >= 0x27: repetition marker)
+# Input: ascii string (0x20-0x26: data, >= 0x27: repetition marker)
+# Symbols used in input: OUTER_FLOOR = 0; FLOOR = 1; GOAL = 2; WALL = 3; PLAYER = 4; BOX = 5; BOX_ON_GOAL = 6;
 def rle_compress(input)
   shift = 0x20
   compressed = ''
@@ -782,10 +783,10 @@ end
 
 # Pattern Substitution based compression
 #
-# We substitue a frequently repeating pattern(s) with a code. The code is shorter than than pattern giving us compression.
-# More typically tokens are assigned to according to frequency of occurrenc of patterns:
+# Substitue a frequently repeating pattern(s) with a code. The code is shorter than pattern giving us compression.
+# More typically tokens are assigned to according to frequency of occurrence of patterns:
 # - Count occurrence of tokens
-# - Sort in Descending order
+# - Sort in descending order
 # - Assign some symbols to highest count tokens
 def compress(input)
   unused_chars = []
@@ -815,11 +816,11 @@ def test(name, data)
   puts "================================================="
   puts name
   puts "-------------------------------------------------"
-  puts "input data size ....... [#{data.size}]"
-  puts "compressed size (RLE) . [#{(rle_compress(data)).size}]"
-  puts "compressed size ....... [#{compressed.size}]"
-  puts "compression ratio ..... [#{sprintf('%.2f%', compressed.size.to_f / data.size.to_f)}]"
-  puts "decompress valid ...... [#{data == decompressed}]"
+  puts "input data size ........ [#{data.size} bytes]"
+  puts "compressed size (RLE) .. [#{(rle_compress(data)).size} bytes]"
+  puts "compressed size (sub) .. [#{compressed.size} bytes]"
+  puts "compression ratio ...... [#{sprintf('%.2f%', compressed.size.to_f / data.size.to_f)}]"
+  puts "decompression valid .... [#{data == decompressed}]"
   puts "-------------------------------------------------"
   puts "compressed = '#{compressed}';"
   puts "================================================="
