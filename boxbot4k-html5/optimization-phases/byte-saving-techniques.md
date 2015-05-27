@@ -264,7 +264,7 @@ color=1<<20    // after
 
 ### Use `1/0` instead of `Infinity`
 
-It’s shorter. Besides, division by zero gets you free internet points.
+It's shorter. Besides, division by zero gets you free internet points.
 
 ```javascript
 [Infinity,-Infinity] // before
@@ -400,12 +400,12 @@ Another way to test types is to check if type-specific methods are available. (S
 
 Test the variable x with the shortest type specific method:
 
-| Type | Test |
+| Type | Test |
 |------|------|
 | String | x.big |
 | Number | x.toFixed |
 | Array | x.pop (x.map works on fewer browsers)|
-| Function | x.call |
+| Function | x.call |
 | textNode | x.data |
 
 This technique is even faster than string comparison!
@@ -597,7 +597,7 @@ l=Function("x","console.log(x)")     // after
 
 ### The `return` statement
 
-When returning anything but a variable, there’s no need to use a space after `return`:
+When returning anything but a variable, there's no need to use a space after `return`:
 
 ```js
 return ['foo',42,'bar']; // before
