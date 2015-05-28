@@ -819,7 +819,7 @@ def test(name, data)
   puts "input data size ........ [#{data.size} bytes]"
   puts "compressed size (RLE) .. [#{(rle_compress(data)).size} bytes]"
   puts "compressed size (sub) .. [#{compressed.size} bytes]"
-  puts "compression ratio ...... [#{sprintf('%.2f%', compressed.size.to_f / data.size.to_f)}]"
+  puts "compression ratio ...... [#{sprintf('%.2f%', (1.0 - compressed.size.to_f / data.size.to_f) * 100.0)}]"
   puts "decompression valid .... [#{data == decompressed}]"
   puts "-------------------------------------------------"
   puts "compressed = '#{compressed}';"
