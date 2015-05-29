@@ -753,7 +753,7 @@ def decompress(input)
 end
 
 def substitute_chars(input, unused_chars, subst_map)
-  dictionary = {}
+  words = []
   (2 .. 50).to_a.reverse.each do |word_length|
     word_count = {}
     input.scan(Regexp.new(".{#{word_length}}")).each do |word|
@@ -761,21 +761,19 @@ def substitute_chars(input, unused_chars, subst_map)
       word_count[word] += 1
     end
     word_count.each do |word, count|
-      if count > 2
-        length = word.size * count
-        dictionary[length] = [] if dictionary[length].nil?
-        dictionary[length].push(word)
-      end
+      words.push(word) if count > 2
     end
   end
+  compressed_candidate = input
   compressed = input
-  dictionary.sort.reverse.each do |length, words|
-    words.each do |word|
-      next if !compressed.include?(word) || unused_chars.empty?
-      subst = unused_chars.shift
-      compressed = input.gsub(word, subst)
+  subst = nil
+  words.each do |word|
+    next if !compressed.include?(word) || unused_chars.empty?
+    subst = unused_chars.shift if subst.nil?
+    compressed_candidate = input.gsub(word, subst)
+    if (compressed_candidate.size) < compressed.size
+      compressed = compressed_candidate
       subst_map[subst] = word
-      return compressed
     end
   end
   return compressed
