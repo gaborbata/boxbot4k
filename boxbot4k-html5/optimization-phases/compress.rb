@@ -754,7 +754,7 @@ end
 
 def substitute_chars(input, unused_chars, subst_map)
   words = []
-  (2 .. 10).to_a.reverse.each do |word_length|
+  (2 .. 11).to_a.reverse.each do |word_length|
     word_count = {}
     input.scan(Regexp.new(".{#{word_length}}")).each do |word|
       word_count[word] = 0 if word_count[word].nil?
