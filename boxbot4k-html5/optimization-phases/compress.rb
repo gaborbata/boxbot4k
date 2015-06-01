@@ -753,25 +753,21 @@ def decompress(input)
 end
 
 def substitute_chars(input, unused_chars, subst_map)
-  words = []
+  word_count = {}
   (2 .. 11).to_a.reverse.each do |word_length|
-    word_count = {}
     input.scan(Regexp.new(".{#{word_length}}")).each do |word|
       word_count[word] = 0 if word_count[word].nil?
       word_count[word] += 1
-    end
-    word_count.each do |word, count|
-      words.push(word) if count > 2
     end
   end
   compressed_candidate = input
   compressed = input
   subst = nil
-  words.each do |word|
-    next if !compressed.include?(word) || unused_chars.empty?
+  word_count.each do |word, count|
+    next if count < 3 || !compressed.include?(word) || unused_chars.empty?
     subst = unused_chars.shift if subst.nil?
     compressed_candidate = input.gsub(word, subst)
-    if (compressed_candidate.size) < compressed.size
+    if compressed_candidate.size < compressed.size
       compressed = compressed_candidate
       subst_map[subst] = word
     end
@@ -782,10 +778,7 @@ end
 # Pattern Substitution based compression
 #
 # Substitue a frequently repeating pattern(s) with a code. The code is shorter than pattern giving us compression.
-# More typically tokens are assigned to according to frequency of occurrence of patterns:
-# - Count occurrence of tokens
-# - Sort in descending order
-# - Assign some symbols to highest count tokens
+# More typically tokens are assigned to according to frequency of occurrence of patterns.
 def compress(input)
   unused_chars = []
   subst_characters = (' ' .. '~').to_a.reverse
@@ -795,7 +788,7 @@ def compress(input)
     unused_chars.push(char) if !input.include?(char)
   end
   subst_map = {}
-  compressed = input.clone
+  compressed = input
   prev_compressed = ''
   while (unused_chars.size > 0) do
     prev_compressed = compressed
