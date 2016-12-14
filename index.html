@@ -85,6 +85,8 @@
       #container button {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         background-color: black;
+        background-position: center;
+        background-repeat: no-repeat;
         border: 1px solid #727392;
         color: #727392;
         font-family: sans-serif;
@@ -98,8 +100,20 @@
         width: 100%;
       }
 
-      #container button img {
-        margin-top: 3px;
+      #up {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEUAAAByc5LoAd2sAAAAIUlEQVR4AUXGyQHAIBAAoaX/onOpGV7MizkqVI2qUTWqGwniAD3aBW6MAAAAAElFTkSuQmCC');
+      }
+
+      #down {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEVyc5IAAABKtqY1AAAAHUlEQVR4AWPADhjhDBQmI5SFxmQEszCYjEAWKhMABZYAKac+ZGkAAAAASUVORK5CYII=');
+      }
+
+      #left {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEUAAAByc5LoAd2sAAAAIUlEQVR4AWOAAUZGOAPKZAQDEAMK4AwEE6EAUxvCMDgHAA0CAD2OQyA7AAAAAElFTkSuQmCC');
+      }
+
+      #right {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEVyc5IAAABKtqY1AAAAIElEQVR4AWNgYGCEAgYQgDHhHAYYgDAxAaYCdMMQVgAACLYAKZ5+6WMAAAAASUVORK5CYII=');
       }
 
       #boxbot4k {
@@ -146,9 +160,7 @@
             <button id="next">Next</button>
           </div>
           <div class="col-2-12 push-4-12">
-            <button id="up">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEUAAAByc5LoAd2sAAAAIUlEQVR4AUXGyQHAIBAAoaX/onOpGV7MizkqVI2qUTWqGwniAD3aBW6MAAAAAElFTkSuQmCC" width="10" height="10" alt="up">
-            </button>
+            <button id="up"></button>
           </div>
         </div>
         <div class="grid grid-pad control">
@@ -159,19 +171,13 @@
             <button id="continue">Enter</button>
           </div>
           <div class="col-2-12 push-2-12">
-            <button id="left">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEUAAAByc5LoAd2sAAAAIUlEQVR4AWOAAUZGOAPKZAQDEAMK4AwEE6EAUxvCMDgHAA0CAD2OQyA7AAAAAElFTkSuQmCC" width="10" height="10" alt="left">
-            </button>
+            <button id="left"></button>
           </div>
           <div class="col-2-12">
-            <button id="down">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEVyc5IAAABKtqY1AAAAHUlEQVR4AWPADhjhDBQmI5SFxmQEszCYjEAWKhMABZYAKac+ZGkAAAAASUVORK5CYII=" width="10" height="10" alt="down">
-            </button>
+            <button id="down"></button>
           </div>
           <div class="col-2-12">
-            <button id="right">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAABlBMVEVyc5IAAABKtqY1AAAAIElEQVR4AWNgYGCEAgYQgDHhHAYYgDAxAaYCdMMQVgAACLYAKZ5+6WMAAAAASUVORK5CYII=" width="10" height="10" alt="right">
-            </button>
+            <button id="right"></button>
           </div>
         </div>
       </div>
