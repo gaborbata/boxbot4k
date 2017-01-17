@@ -55,10 +55,12 @@ task deleteProguardBase(type: Delete, dependsOn: advzip) {
     enabled = isWindows
 }
 
-task checkFileSize(dependsOn: deleteProguardBase) << {
-    File file = new File("${buildDir}/libs/${finalName}.jar")
-    if (isWindows && file.size() > 4096) {
-        throw new GradleException('File size must not exceed 4096 bytes.')
+task checkFileSize(dependsOn: deleteProguardBase) {
+    doLast {
+        File file = new File("${buildDir}/libs/${finalName}.jar")
+        if (isWindows && file.size() > 4096) {
+            throw new GradleException('File size must not exceed 4096 bytes.')
+        }
     }
 }
 
