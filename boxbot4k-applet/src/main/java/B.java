@@ -32,6 +32,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -253,6 +254,7 @@ public final class B extends JApplet implements KeyListener, MouseListener, Runn
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+                ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
                 paintTableGraphics(g);
             }
         };
@@ -263,7 +265,9 @@ public final class B extends JApplet implements KeyListener, MouseListener, Runn
     }
 
     private void paintTableGraphics(Graphics g) {
-        Graphics buffer = screenBuffer.getGraphics();
+        Graphics2D buffer = (Graphics2D) screenBuffer.getGraphics();
+        buffer.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
         for(int i = 0; i < 3; i++) { // 3 step: draw floor, draw shadows, draw other elements
             for (int x = 0; x < TABLE_WIDTH; x++) {
                 for (int y = 0; y < TABLE_HEIGHT; y++) {
